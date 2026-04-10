@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>FST GANGSTER CLAN | Rivals Wiki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0c0f17;
+            font-family: 'Inter', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #eef2ff;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        .wiki-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        /* SIDEBAR */
+        .wiki-sidebar {
+            flex: 1.2;
+            min-width: 240px;
+            background: #0f1322;
+            border-radius: 28px;
+            border: 1px solid #252b3d;
+            padding: 1.8rem 1.2rem;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.6);
+            height: fit-content;
+            position: sticky;
+            top: 1.5rem;
+        }
+
+        .sidebar-header {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffb347, #ff7e05);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #ff7e05;
+            padding-left: 1rem;
+        }
+
+        .browse-nav {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .browse-nav li {
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 14px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            color: #b9c3e6;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .browse-nav li:hover {
+            background: #1a1f32;
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .browse-nav li::before {
+            content: "▸";
+            font-size: 0.7rem;
+            color: #ff9f4a;
+            opacity: 0.8;
+        }
+
+        .apply-link {
+            cursor: pointer;
+        }
+
+        /* MAIN CONTENT */
+        .wiki-main {
+            flex: 3.8;
+            min-width: 280px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+            background: #0b0f1c;
+            border-radius: 32px;
+            padding: 0.8rem 1.8rem;
+            border: 1px solid #262d42;
+        }
+
+        .title-badge h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f0f3ff, #ffd7a5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .title-badge p {
+            font-size: 0.75rem;
+            color: #a9b7e0;
+        }
+
+        .owner-profile {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #12172b;
+            padding: 0.5rem 1.2rem 0.5rem 0.8rem;
+            border-radius: 100px;
+            border: 1px solid #ffb34740;
+        }
+
+        .owner-profile a {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .owner-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #2a2f44;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 2px solid #ff9f4a;
+        }
+
+        .owner-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .owner-info .name {
+            font-size: 1rem;
+            color: #ffd9a5;
+        }
+
+        .owner-info .tag {
+            font-size: 0.7rem;
+            color: #8d9bcc;
+        }
+
+        .edit-meta {
+            font-size: 0.75rem;
+            background: #0e1222;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            color: #b9c7f0;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .edit-meta span {
+            color: #ffaa66;
+            font-weight: 600;
+        }
+
+        .section-card {
+            background: #0c1020e6;
+            border-radius: 28px;
+            border: 1px solid #242b3f;
+            padding: 1.4rem 1.8rem 1.8rem;
+            backdrop-filter: blur(2px);
+            margin-bottom: 1.8rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 5px solid #ff7e05;
+            padding-left: 1rem;
+        }
+
+        .clan-badge {
+            background: #171d32;
+            border-radius: 18px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            border-left: 3px solid #ff9f4a;
+        }
+
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .info-block {
+            background: #0a0e1c;
+            border-radius: 20px;
+            padding: 1rem;
+            flex: 1 1 200px;
+        }
+
+        .staff-member {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: #10152a;
+            padding: 0.7rem 1rem;
+            border-radius: 18px;
+            margin-bottom: 0.7rem;
+        }
+
+        .department-badge {
+            background: #151e2c;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 0.2rem;
+        }
+
+        .roblox-link {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #ffb26e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #ffb26e;
+        }
+
+        hr {
+            border-color: #252c40;
+            margin: 1rem 0;
+        }
+
+        .wiki-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #5e6a8c;
+            border-top: 1px solid #222838;
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 780px) {
+            body { padding: 1rem; }
+            .wiki-sidebar { position: relative; top: 0; }
+            .page-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+<div class="wiki-container">
+    <!-- SIDEBAR -->
+    <aside class="wiki-sidebar">
+        <div class="sidebar-header">FST WIKI</div>
+        <ul class="browse-nav">
+            <li>Information</li>
+            <li>Applications</li>
+            <li id="ownerNavBtn">Owner</li>
+            <li>Member List</li>
+            <li>Entry Test</li>
+            <li>Final Test</li>
+            <li>News</li>
+            <li id="applyNavBtn" class="apply-link">Apply</li>
+        </ul>
+        <div style="margin-top: 2rem; font-size: 0.7rem; background: #0a0e1c; border-radius: 20px; padding: 0.7rem; text-align: center;">
+            FST | Gangster Clan Of Rivals<br>
+            Street Kings
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="wiki-main">
+        <div class="page-header">
+            <div class="title-badge">
+                <h1>FST | GANGSTER CLAN OF RIVALS</h1>
+                <p>Street Kings · Rivals Division</p>
+            </div>
+            <div class="owner-profile">
+                <a href="https://www.roblox.com/users/4221202613/profile" target="_blank" rel="noopener noreferrer">
+                    <div class="owner-avatar">
+                        <img src="https://www.roblox.com/headshot-thumbnail/avatar?userId=4221202613&width=420&height=420&format=png" 
+                             alt="fistygamerz avatar"
+                             onerror="this.src='https://www.roblox.com/headshot-thumbnail/avatar?userId=4221202613&width=100&height=100'">
+                    </div>
+                    <div class="owner-info">
+                        <div class="name">fistygamerz</div>
+                        <div class="tag">Clan Founder</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="edit-meta">
+            LAST EDITED BY <span>Fistygamerz</span> · 04/10/2026
+        </div>
+
+        <!-- INFORMATION ABOUT CLAN -->
+        <div class="section-card">
+            <div class="section-title">CLAN INFORMATION</div>
+            <div class="clan-badge">
+                <strong>FST | Gangster Clan Of Rivals</strong><br>
+                Underground street kings dominating the Rivals scene. Built on loyalty, respect, and pure skill. We run the streets and the leaderboards.
+            </div>
+            <div class="info-grid">
+                <div class="info-block"><strong>Founded</strong><br>2023 · Street Origin</div>
+                <div class="info-block"><strong>Motto</strong><br>Ride or Die</div>
+                <div class="info-block"><strong>Rivals Rank</strong><br>Top 50 Global</div>
+                <div class="info-block"><strong>Game Mode</strong><br>5v5 · Competitive</div>
+            </div>
+            <div style="margin-top: 1rem; background: #0e1428; border-radius: 18px; padding: 0.8rem;">
+                <span>🔹 <strong>Current Status:</strong> Recruiting active gangsters | Tryouts every Friday 6PM UTC</span><br>
+                <span>🔹 <strong>Clan Wars:</strong> Weekly street battles vs top Rivals clans</span><br>
+                <span>🔹 <strong>Requirements:</strong> 50+ wins, microphone, loyalty to FST</span>
+            </div>
+        </div>
+
+        <!-- OWNER SECTION -->
+        <div class="section-card" id="ownerSection">
+            <div class="section-title">CLAN OWNER & LEADERSHIP</div>
+            <div class="staff-member">
+                <div class="owner-avatar" style="width: 48px; height: 48px;">
+                    <img src="https://www.roblox.com/headshot-thumbnail/avatar?userId=4221202613&width=420&height=420&format=png" 
+                         alt="fistygamerz"
+                         onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-4221202613.png'">
+                </div>
+                <div>
+                    <strong style="font-size: 1.1rem;">fistygamerz</strong><br>
+                    Founder & Street Boss<br>
+                    <a href="https://www.roblox.com/users/4221202613/profile" target="_blank" class="roblox-link">Roblox Profile →</a>
+                </div>
+            </div>
+            <div style="margin-top: 0.8rem; padding-left: 0.5rem;">
+                <span class="department-badge">Senior Admin: ToxicKidGER</span>
+                <span class="department-badge">GF-64 Division Lead</span>
+                <span class="department-badge">Street Tactical Unit</span>
+            </div>
+            <div style="margin-top: 0.5rem; font-size: 0.8rem; color: #cbd5ff;">
+                Owner since 2023 · Creator of FST gangster division. Directly manages clan wars and final tests.
+            </div>
+        </div>
+
+        <!-- MEMBER LIST -->
+        <div class="section-card">
+            <div class="section-title">MEMBER LIST · ELITE ROSTER</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                <span class="department-badge">fistygamerz (Founder)</span>
+                <span class="department-badge">ToxicKidGER (Commander)</span>
+                <span class="department-badge">GF-64 (Veteran)</span>
+                <span class="department-badge">FST_Alpha</span>
+                <span class="department-badge">Rivals_Blitz</span>
+                <span class="department-badge">StreetShield</span>
+                <span class="department-badge">GangsterStriker</span>
+            </div>
+            <div style="margin-top: 0.6rem;"><a href="#" class="roblox-link" style="font-size:0.75rem;">View full member list →</a></div>
+        </div>
+
+        <!-- ENTRY TEST & FINAL TEST -->
+        <div class="section-card">
+            <div class="section-title">ENTRY TEST & FINAL TEST</div>
+            <div><strong>📌 Entry Test:</strong> Complete aim trainer + movement course on Rivals map "Crossroads". Required: 40 kills in public match. Held every Friday/Saturday.</div>
+            <hr>
+            <div><strong>⚔️ Final Test:</strong> 1v1 ranked duel vs. Commander or Owner. Achieve "Elite Gangster" status + exclusive role. Must pass Entry Test first.</div>
+        </div>
+
+        <!-- NEWS -->
+        <div class="section-card">
+            <div class="section-title">NEWS · LATEST UPDATES</div>
+            <ul style="margin-left: 1.2rem; gap: 0.5rem; display: flex; flex-direction: column;">
+                <li>• [04/08/2026] Clan war vs Phoenix Syndicate - VICTORY! +150 clan points.</li>
+                <li>• [04/05/2026] New training server launched: "FST Street Dojo".</li>
+                <li>• [04/01/2026] fistygamerz reached 10K followers on Roblox.</li>
+                <li>• [03/28/2026] Spring recruitment wave open – Apply via #apply channel.</li>
+            </ul>
+        </div>
+
+        <!-- APPLY SECTION (Discord link) -->
+        <div class="section-card" style="background: #131a2e;">
+            <div class="section-title">APPLY TO JOIN FST</div>
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+                <span>Ready to become a street legend? Click below to open our Discord application channel.</span>
+                <a href="https://discord.com/channels/1478711010092388392/1478711011505868843" target="_blank" rel="noopener noreferrer" style="background:#ff7e05; color:#0a0c1a; padding: 0.5rem 1.2rem; border-radius: 40px; text-decoration: none; font-weight: bold; margin-top: 0.5rem;">APPLY NOW →</a>
+            </div>
+            <div style="margin-top: 0.7rem; font-size:0.7rem;">Direct link to #apply channel on Discord. Fill the form and meet requirements.</div>
+        </div>
+
+        <div class="wiki-footer">
+            FST | GANGSTER CLAN OF RIVALS · Maintained by fistygamerz<br>
+            All Roblox items and profiles belong to respective owners. Last sync: April 2026.
+        </div>
+    </main>
+</div>
+
+<script>
+    const applyBtn = document.getElementById('applyNavBtn');
+    if (applyBtn) {
+        applyBtn.addEventListener('click', () => {
+            window.open('https://discord.com/channels/1478711010092388392/1478711011505868843', '_blank');
+        });
+    }
+    const ownerNav = document.getElementById('ownerNavBtn');
+    if (ownerNav) {
+        ownerNav.addEventListener('click', () => {
+            document.getElementById('ownerSection').scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+</script>
+</body>
+</html>
