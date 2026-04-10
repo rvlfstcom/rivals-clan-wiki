@@ -27,7 +27,6 @@
             gap: 2rem;
         }
 
-        /* ========= SIDEBAR ========= */
         .wiki-sidebar {
             flex: 1.2;
             min-width: 260px;
@@ -42,7 +41,6 @@
             top: 1.5rem;
         }
 
-        /* Logo + Header */
         .sidebar-logo {
             display: flex;
             align-items: center;
@@ -62,7 +60,6 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #ff9f4a;
-            box-shadow: 0 0 8px rgba(255, 125, 5, 0.2);
         }
 
         .logo-icon span:first-child {
@@ -72,14 +69,12 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            line-height: 1;
         }
 
         .logo-icon span:last-child {
             font-size: 0.45rem;
             font-weight: 600;
             color: #ffae6e;
-            letter-spacing: 0.5px;
         }
 
         .sidebar-header {
@@ -122,7 +117,6 @@
             content: "▸";
             font-size: 0.7rem;
             color: #ff9f4a;
-            opacity: 0.8;
         }
 
         .active-nav {
@@ -131,7 +125,6 @@
             border-left: 3px solid #ff7e05;
         }
 
-        /* ========= MAIN CONTENT ========= */
         .wiki-main {
             flex: 3.8;
             min-width: 280px;
@@ -186,7 +179,6 @@
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            background: #2a2f44;
             overflow: hidden;
             border: 2px solid #ff9f4a;
         }
@@ -211,7 +203,6 @@
             margin-bottom: 1.2rem;
         }
 
-        /* Content panels */
         .content-panel {
             background: #0c1020e6;
             border-radius: 28px;
@@ -294,6 +285,28 @@
             margin-top: 1rem;
         }
 
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            background: #1f253f;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #ffb26e;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+
+        .social-link:hover {
+            background: #ff7e05;
+            color: #0a0c1a;
+        }
+
         .footer-note {
             margin-top: 2rem;
             text-align: center;
@@ -312,7 +325,6 @@
 </head>
 <body>
 <div class="wiki-container">
-    <!-- SIDEBAR WITH LOGO -->
     <aside class="wiki-sidebar">
         <div class="sidebar-logo">
             <div class="logo-icon">
@@ -336,7 +348,6 @@
         </div>
     </aside>
 
-    <!-- MAIN CONTENT (PANELS) -->
     <main class="wiki-main">
         <div class="page-header">
             <div class="title-badge">
@@ -346,9 +357,7 @@
             <div class="owner-profile">
                 <a href="https://www.roblox.com/users/4221202613/profile" target="_blank">
                     <div class="owner-avatar">
-                        <img src="https://www.roblox.com/headshot-thumbnail/avatar?userId=4221202613&width=420&height=420&format=png" 
-                             alt="fistygamerz"
-                             onerror="this.src='https://tr.rbxcdn.com/30DAY-AvatarHeadshot-4221202613.png'">
+                        <img src="Gemini_Generated_Image_9pb8tg9pb8tg9pb8.png" alt="fistygamerz" style="width:100%;height:100%;object-fit:cover;">
                     </div>
                     <div class="owner-info">
                         <div class="name">fistygamerz</div>
@@ -360,7 +369,6 @@
 
         <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/10/2026</div>
 
-        <!-- PANEL: INFORMATION -->
         <div id="panel-information" class="content-panel active-panel">
             <div class="panel-title">CLAN INFORMATION</div>
             <div class="clan-badge">
@@ -378,9 +386,13 @@
                 <span>🔹 <strong>Clan Wars:</strong> Weekly street battles vs top Rivals clans</span><br>
                 <span>🔹 <strong>Requirements:</strong> 50+ wins, microphone, loyalty to FST</span>
             </div>
+            
+            <div class="social-links">
+                <a href="https://discord.gg/dKPff6gdsK" target="_blank" class="social-link">💬 Join our Discord</a>
+                <a href="https://www.roblox.com/communities/32380100/Legion-Community-Server#!/about" target="_blank" class="social-link">🎮 Roblox Group</a>
+            </div>
         </div>
 
-        <!-- PANEL: APPLY -->
         <div id="panel-apply" class="content-panel">
             <div class="panel-title">APPLY TO JOIN FST</div>
             <div style="background: #131a2e; border-radius: 24px; padding: 1.2rem;">
@@ -390,13 +402,12 @@
             </div>
         </div>
 
-        <!-- PANEL: OWNER -->
         <div id="panel-owner" class="content-panel">
             <div class="panel-title">CLAN OWNER</div>
             <div style="background: #10152a; border-radius: 24px; padding: 1rem;">
                 <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
                     <div class="owner-avatar" style="width: 64px; height: 64px;">
-                        <img src="https://www.roblox.com/headshot-thumbnail/avatar?userId=4221202613&width=420&height=420&format=png" alt="fistygamerz">
+                        <img src="Gemini_Generated_Image_9pb8tg9pb8tg9pb8.png" alt="fistygamerz" style="width:100%;height:100%;object-fit:cover;">
                     </div>
                     <div>
                         <h3 style="font-size: 1.4rem;">fistygamerz</h3>
@@ -408,7 +419,6 @@
             </div>
         </div>
 
-        <!-- PANEL: MEMBER LIST (only requested names) -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
@@ -420,7 +430,6 @@
             <div style="margin-top: 1rem; font-size: 0.7rem;">Full roster updates announced weekly.</div>
         </div>
 
-        <!-- PANEL: ENTRY TEST -->
         <div id="panel-entrytest" class="content-panel">
             <div class="panel-title">ENTRY TEST</div>
             <div class="clan-badge">
@@ -432,7 +441,6 @@
             <div style="margin-top: 0.8rem;">✅ After passing, you become a trial member and unlock the Final Test.</div>
         </div>
 
-        <!-- PANEL: FINAL TEST -->
         <div id="panel-finaltest" class="content-panel">
             <div class="panel-title">FINAL TEST</div>
             <div class="clan-badge">
@@ -444,7 +452,6 @@
             <div style="margin-top: 0.8rem;">🏆 Winners receive a permanent spot in the Hall of Fame.</div>
         </div>
 
-        <!-- PANEL: NEWS (custom text, no webhook) -->
         <div id="panel-news" class="content-panel">
             <div class="panel-title">LATEST NEWS</div>
             <div style="background: #10152a; border-radius: 24px; padding: 1.2rem; white-space: pre-line; line-height: 1.6;">
@@ -467,7 +474,6 @@
 </div>
 
 <script>
-    // Sidebar navigation logic
     const navItems = document.querySelectorAll('.browse-nav li');
     const panels = {
         information: document.getElementById('panel-information'),
@@ -480,13 +486,10 @@
     };
 
     function activatePanel(panelId) {
-        // Hide all panels
         Object.values(panels).forEach(panel => {
             if (panel) panel.classList.remove('active-panel');
         });
-        // Show selected panel
         if (panels[panelId]) panels[panelId].classList.add('active-panel');
-        // Update active nav style
         navItems.forEach(item => {
             item.classList.remove('active-nav');
             const itemPanel = item.getAttribute('data-panel');
@@ -501,7 +504,6 @@
         });
     });
 
-    // Default active: information
     activatePanel('information');
 </script>
 </body>
