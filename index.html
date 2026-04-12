@@ -307,6 +307,51 @@
             color: #0a0c1a;
         }
 
+        /* Rank Styles */
+        .rank-command {
+            color: #ff4444;
+            font-weight: bold;
+        }
+        .rank-staff {
+            color: #ffaa44;
+            font-weight: bold;
+        }
+        .rank-elite {
+            color: #ffd700;
+            font-weight: bold;
+        }
+        .rank-member {
+            color: #88aaff;
+        }
+        .rank-separator {
+            color: #555;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .rank-item {
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            background: #10152a;
+        }
+
+        .conduct-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .conduct-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.2rem;
+            border-left: 2px solid #ff7e05;
+        }
+
         .footer-note {
             margin-top: 2rem;
             text-align: center;
@@ -335,6 +380,8 @@
         </div>
         <ul class="browse-nav">
             <li data-panel="information">Information</li>
+            <li data-panel="ranks">Ranks</li>
+            <li data-panel="conduct">Code of Conduct</li>
             <li data-panel="apply">Apply</li>
             <li data-panel="owner">Owner</li>
             <li data-panel="memberlist">Member List</li>
@@ -367,6 +414,7 @@
 
         <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/12/2026</div>
 
+        <!-- INFORMATION PANEL -->
         <div id="panel-information" class="content-panel active-panel">
             <div class="panel-title">CLAN INFORMATION</div>
             <div class="clan-badge">
@@ -384,13 +432,62 @@
                 <span>🔹 <strong>Clan Wars:</strong> Weekly street battles vs top Rivals clans</span><br>
                 <span>🔹 <strong>Requirements:</strong> 50+ wins, microphone, loyalty to FST</span>
             </div>
-            
             <div class="social-links">
                 <a href="https://discord.gg/dKPff6gdsK" target="_blank" class="social-link">💬 Join our Discord</a>
                 <a href="https://www.roblox.com/communities/32380100/Legion-Community-Server#!/about" target="_blank" class="social-link">🎮 Roblox Group</a>
             </div>
         </div>
 
+        <!-- RANKS PANEL (Color Coded) -->
+        <div id="panel-ranks" class="content-panel">
+            <div class="panel-title">RANK STRUCTURE</div>
+            <div class="rank-list">
+                <div class="rank-item"><span class="rank-command">★ Apex Command</span> <span style="color:#888;">- Highest Authority</span></div>
+                <div class="rank-item"><span class="rank-command">★ Head Command</span> <span style="color:#888;">- Senior Leadership</span></div>
+                <div class="rank-separator">─────── RANK ───────</div>
+                <div class="rank-item"><span class="rank-staff">◆ Recruiter</span> <span style="color:#888;">- Recruitment Team</span></div>
+                <div class="rank-item"><span class="rank-staff">◆ Director</span> <span style="color:#888;">- Division Management</span></div>
+                <div class="rank-item"><span class="rank-staff">◆ OVERSEER</span> <span style="color:#888;">- Supervision & Enforcement</span></div>
+                <div class="rank-item"><span class="rank-staff">◆ Ticketer</span> <span style="color:#888;">- Support & Tickets</span></div>
+                <div class="rank-item"><span class="rank-staff">◆ Major</span> <span style="color:#888;">- Senior Officer</span></div>
+                <div class="rank-item"><span class="rank-staff">◆ Lieutenant</span> <span style="color:#888;">- Officer</span></div>
+                <div class="rank-item"><span class="rank-staff">◆ Sergeant</span> <span style="color:#888;">- Non-Commissioned Officer</span></div>
+                <div class="rank-item"><span class="rank-staff">◆ Moderator</span> <span style="color:#888;">- Chat & Server Mod</span></div>
+                <div class="rank-separator">─────── LINE ───────</div>
+                <div class="rank-item"><span class="rank-elite">◇ Elite Member</span> <span style="color:#888;">- Proven & Trusted</span></div>
+                <div class="rank-separator">─────── STATUS ───────</div>
+                <div class="rank-item"><span class="rank-member">○ Member</span> <span style="color:#888;">- Active Clan Member</span></div>
+            </div>
+            <div style="margin-top: 1rem; font-size:0.75rem; background:#0e1428; padding:0.6rem; border-radius:12px;">
+                🔴 Command = Red &nbsp;&nbsp;|&nbsp;&nbsp; 🟠 Staff = Orange &nbsp;&nbsp;|&nbsp;&nbsp; 🟡 Elite = Gold &nbsp;&nbsp;|&nbsp;&nbsp; 🔵 Member = Blue
+            </div>
+        </div>
+
+        <!-- CODE OF CONDUCT PANEL -->
+        <div id="panel-conduct" class="content-panel">
+            <div class="panel-title">CODE OF CONDUCT</div>
+            <div class="clan-badge">
+                <strong>FST | Standards & Discipline</strong><br>
+                Every member represents the clan. Act accordingly.
+            </div>
+            <ul class="conduct-list">
+                <li><strong>1. Respect Everyone</strong> – No bullying, harassment, or hate speech. Be respectful to teammates and opponents.</li>
+                <li><strong>2. No Cheating / Exploiting</strong> – No aimbot, wallhacks, or glitches. Zero tolerance = instant ban.</li>
+                <li><strong>3. Be Active</strong> – Log in at least once a week. Inform staff about inactivity. 30 days inactive = removal.</li>
+                <li><strong>4. Follow Staff Instructions</strong> – Listen to Command & Staff members. Appeals must be private.</li>
+                <li><strong>5. Represent FST Well</strong> – No trolling other clans, no drama. Wear FST uniform during wars.</li>
+                <li><strong>6. No Account Sharing</strong> – Do not share your Roblox account. Alt accounts used to bypass bans are forbidden.</li>
+            </ul>
+            <div style="background:#1a1f32; border-radius:16px; padding:0.8rem; margin-top:1rem;">
+                <strong>Punishment System</strong><br>
+                ⚠️ First Warning → Verbal warning<br>
+                ⚠️ Second Offense → 3-day suspension<br>
+                ⚠️ Third Offense → Demotion / Rank reset<br>
+                ❌ Severe Offense (cheating, hate speech) → Immediate Ban
+            </div>
+        </div>
+
+        <!-- APPLY PANEL -->
         <div id="panel-apply" class="content-panel">
             <div class="panel-title">APPLY TO JOIN FST</div>
             <div style="background: #131a2e; border-radius: 24px; padding: 1.2rem;">
@@ -400,6 +497,7 @@
             </div>
         </div>
 
+        <!-- OWNER PANEL -->
         <div id="panel-owner" class="content-panel">
             <div class="panel-title">CLAN OWNER</div>
             <div style="background: #10152a; border-radius: 24px; padding: 1rem;">
@@ -415,6 +513,7 @@
             </div>
         </div>
 
+        <!-- MEMBER LIST PANEL -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
@@ -427,6 +526,7 @@
             <div style="margin-top: 1rem; font-size: 0.7rem;">Full roster updates announced weekly.</div>
         </div>
 
+        <!-- ENTRY TEST PANEL -->
         <div id="panel-entrytest" class="content-panel">
             <div class="panel-title">ENTRY TEST</div>
             <div class="clan-badge">
@@ -438,6 +538,7 @@
             <div style="margin-top: 0.8rem;">✅ After passing, you become a trial member and unlock the Final Test.</div>
         </div>
 
+        <!-- FINAL TEST PANEL -->
         <div id="panel-finaltest" class="content-panel">
             <div class="panel-title">FINAL TEST</div>
             <div class="clan-badge">
@@ -449,6 +550,7 @@
             <div style="margin-top: 0.8rem;">🏆 Winners receive a permanent spot in the Hall of Fame.</div>
         </div>
 
+        <!-- NEWS PANEL -->
         <div id="panel-news" class="content-panel">
             <div class="panel-title">LATEST NEWS</div>
             <div style="background: #10152a; border-radius: 24px; padding: 1.2rem; white-space: pre-line; line-height: 1.6;">
@@ -474,6 +576,8 @@
     const navItems = document.querySelectorAll('.browse-nav li');
     const panels = {
         information: document.getElementById('panel-information'),
+        ranks: document.getElementById('panel-ranks'),
+        conduct: document.getElementById('panel-conduct'),
         apply: document.getElementById('panel-apply'),
         owner: document.getElementById('panel-owner'),
         memberlist: document.getElementById('panel-memberlist'),
