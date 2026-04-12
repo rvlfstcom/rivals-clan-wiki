@@ -307,7 +307,6 @@
             color: #0a0c1a;
         }
 
-        /* Rank Styles */
         .rank-command {
             color: #ff4444;
             font-weight: bold;
@@ -352,6 +351,23 @@
             border-left: 2px solid #ff7e05;
         }
 
+        .faq-item {
+            margin-bottom: 1.2rem;
+            background: #10152a;
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #ffaa44;
+            margin-bottom: 0.3rem;
+        }
+        .faq-answer {
+            color: #b9c3e6;
+            padding-left: 0.5rem;
+            border-left: 2px solid #ff7e05;
+        }
+
         .footer-note {
             margin-top: 2rem;
             text-align: center;
@@ -382,6 +398,7 @@
             <li data-panel="information">Information</li>
             <li data-panel="ranks">Ranks</li>
             <li data-panel="conduct">Code of Conduct</li>
+            <li data-panel="faq">FAQ</li>
             <li data-panel="apply">Apply</li>
             <li data-panel="owner">Owner</li>
             <li data-panel="memberlist">Member List</li>
@@ -438,7 +455,7 @@
             </div>
         </div>
 
-        <!-- RANKS PANEL (Color Coded) -->
+        <!-- RANKS PANEL -->
         <div id="panel-ranks" class="content-panel">
             <div class="panel-title">RANK STRUCTURE</div>
             <div class="rank-list">
@@ -484,6 +501,51 @@
                 ⚠️ Second Offense → 3-day suspension<br>
                 ⚠️ Third Offense → Demotion / Rank reset<br>
                 ❌ Severe Offense (cheating, hate speech) → Immediate Ban
+            </div>
+        </div>
+
+        <!-- FAQ PANEL (NEW) -->
+        <div id="panel-faq" class="content-panel">
+            <div class="panel-title">FREQUENTLY ASKED QUESTIONS</div>
+            <div class="faq-item">
+                <div class="faq-question">❓ How do I join FST?</div>
+                <div class="faq-answer">Click the "Apply" button in the sidebar and follow the instructions to open our Discord application channel.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ What are the requirements to join?</div>
+                <div class="faq-answer">50+ Rivals wins, a working microphone, and loyalty to FST.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ How do I rank up?</div>
+                <div class="faq-answer">Be active, participate in clan wars, help recruit new members, and show leadership skills.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ I'm going to be inactive. What should I do?</div>
+                <div class="faq-answer">Inform a Director or Overseer. We offer inactive status so you don't get removed.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ Can I leave and rejoin later?</div>
+                <div class="faq-answer">Yes, but repeated leaving may result in a longer re-entry cooldown.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ What happens if I break a rule?</div>
+                <div class="faq-answer">First warning → 3-day suspension → Demotion → Ban (depending on severity).</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ How do I report someone?</div>
+                <div class="faq-answer">Contact any Moderator or Director via Discord DM or create a ticket.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ Does FST accept content creators?</div>
+                <div class="faq-answer">Yes! We support streamers and YouTubers. Contact Owner for a Creator role.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ Where do I find clan announcements?</div>
+                <div class="faq-answer">Check the "News" panel on this wiki or the #announcements channel on Discord.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">❓ Who do I contact for help?</div>
+                <div class="faq-answer">Tag @Moderator in Discord or open a support ticket.</div>
             </div>
         </div>
 
@@ -578,6 +640,7 @@
         information: document.getElementById('panel-information'),
         ranks: document.getElementById('panel-ranks'),
         conduct: document.getElementById('panel-conduct'),
+        faq: document.getElementById('panel-faq'),
         apply: document.getElementById('panel-apply'),
         owner: document.getElementById('panel-owner'),
         memberlist: document.getElementById('panel-memberlist'),
