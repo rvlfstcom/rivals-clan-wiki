@@ -368,6 +368,30 @@
             border-left: 2px solid #ff7e05;
         }
 
+        .allies-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .ally-card {
+            background: #10152a;
+            padding: 0.8rem 1rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-left: 3px solid #ff7e05;
+        }
+        .ally-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ffaa44;
+        }
+        .ally-status {
+            font-size: 0.7rem;
+            color: #88ffaa;
+        }
+
         .footer-note {
             margin-top: 2rem;
             text-align: center;
@@ -399,6 +423,7 @@
             <li data-panel="ranks">Ranks</li>
             <li data-panel="conduct">Code of Conduct</li>
             <li data-panel="faq">FAQ</li>
+            <li data-panel="allies">Allies</li>
             <li data-panel="apply">Apply</li>
             <li data-panel="owner">Owner</li>
             <li data-panel="memberlist">Member List</li>
@@ -504,7 +529,7 @@
             </div>
         </div>
 
-        <!-- FAQ PANEL (NEW) -->
+        <!-- FAQ PANEL -->
         <div id="panel-faq" class="content-panel">
             <div class="panel-title">FREQUENTLY ASKED QUESTIONS</div>
             <div class="faq-item">
@@ -546,6 +571,22 @@
             <div class="faq-item">
                 <div class="faq-question">❓ Who do I contact for help?</div>
                 <div class="faq-answer">Tag @Moderator in Discord or open a support ticket.</div>
+            </div>
+        </div>
+
+        <!-- ALLIES PANEL (NEW) -->
+        <div id="panel-allies" class="content-panel">
+            <div class="panel-title">ALLIES & PARTNERS</div>
+            <div class="allies-list">
+                <div class="ally-card">
+                    <div>
+                        <div class="ally-name">SPG</div>
+                        <div class="ally-status">🤝 Allied Clan</div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 1rem; font-size:0.75rem; background:#0e1428; padding:0.6rem; border-radius:12px;">
+                🤝 These clans are trusted allies of FST. Respect them as you would your own clanmates.
             </div>
         </div>
 
@@ -641,6 +682,7 @@
         ranks: document.getElementById('panel-ranks'),
         conduct: document.getElementById('panel-conduct'),
         faq: document.getElementById('panel-faq'),
+        allies: document.getElementById('panel-allies'),
         apply: document.getElementById('panel-apply'),
         owner: document.getElementById('panel-owner'),
         memberlist: document.getElementById('panel-memberlist'),
