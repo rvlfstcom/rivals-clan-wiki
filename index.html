@@ -9,59 +9,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.1s ease;
-        }
-
-        /* Light Mode Variables */
-        :root {
-            --bg-body: #f0f2f5;
-            --bg-sidebar: #ffffff;
-            --border-sidebar: #e2e8f0;
-            --text-primary: #1a2634;
-            --text-secondary: #4a5b6e;
-            --bg-panel: #ffffff;
-            --border-card: #eef2f8;
-            --bg-code: #f8fafc;
-            --bg-info-block: #f1f5f9;
-            --bg-member-row: #f8fafc;
-            --bg-ally: #f8fafc;
-            --bg-faq: #f8fafc;
-            --bg-rank-item: #f8fafc;
-            --bg-social: #eef2ff;
-            --text-rank-desc: #5b6e8c;
-            --footer-text: #7c8ea0;
-            --edit-meta-bg: #eef2f6;
-            --edit-meta-text: #2c5282;
-            --clan-badge-bg: #f1f5f9;
-        }
-
-        /* Dark Mode Variables */
-        body.dark {
-            --bg-body: #0a0d15;
-            --bg-sidebar: #0f1322;
-            --border-sidebar: #252b3d;
-            --text-primary: #eef2ff;
-            --text-secondary: #a9b7e0;
-            --bg-panel: #0c1020e6;
-            --border-card: #242b3f;
-            --bg-code: #10152a;
-            --bg-info-block: #0a0e1c;
-            --bg-member-row: #10152a;
-            --bg-ally: #10152a;
-            --bg-faq: #10152a;
-            --bg-rank-item: #10152a;
-            --bg-social: #1f253f;
-            --text-rank-desc: #8d9bcc;
-            --footer-text: #5e6a8c;
-            --edit-meta-bg: #0e1222;
-            --edit-meta-text: #b9c7f0;
-            --clan-badge-bg: #171d32;
         }
 
         body {
-            background: var(--bg-body);
-            font-family: 'Inter', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            color: var(--text-primary);
+            background: #0b0f1c;
+            font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+            color: #eef2ff;
             line-height: 1.5;
             padding: 2rem 1.5rem;
         }
@@ -74,80 +27,99 @@
             gap: 2rem;
         }
 
+        /* SIDEBAR */
         .wiki-sidebar {
             flex: 1.2;
-            min-width: 260px;
-            background: var(--bg-sidebar);
-            border-radius: 28px;
-            border: 1px solid var(--border-sidebar);
+            min-width: 240px;
+            background: #0f1322;
+            border-radius: 24px;
+            border: 1px solid #252b3d;
             padding: 1.8rem 1.2rem;
-            backdrop-filter: blur(2px);
-            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             height: fit-content;
             position: sticky;
             top: 1.5rem;
         }
 
-        .sidebar-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 1.8rem;
-            border-left: 4px solid #ff7e05;
-            padding-left: 1rem;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(145deg, #1e1a2f, #0b0e1a);
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #ff9f4a;
-        }
-
-        .logo-icon span:first-child {
-            font-size: 1.3rem;
-            font-weight: 800;
+        .sidebar-header {
+            font-size: 1.5rem;
+            font-weight: 700;
             background: linear-gradient(135deg, #ffb347, #ff7e05);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #ff7e05;
+            padding-left: 1rem;
         }
 
-        .logo-icon span:last-child {
-            font-size: 0.45rem;
-            font-weight: 600;
-            color: #ffae6e;
+        .browse-nav {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
         }
 
-        .sidebar-header {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff, #ffbc7a);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Theme Toggle */
-        .theme-toggle {
+        .browse-nav .nav-category {
+            font-size: 0.7rem;
+            color: #8a98b9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             margin-top: 1rem;
+            margin-bottom: 0.3rem;
+            padding-left: 0.5rem;
+        }
+
+        .browse-nav .nav-category:first-of-type {
+            margin-top: 0;
+        }
+
+        .browse-nav li {
+            font-weight: 500;
+            padding: 0.5rem 0.8rem;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            color: #b9c3e6;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .browse-nav li:hover {
+            background: #1a1f32;
+            color: white;
+            transform: translateX(3px);
+        }
+
+        .browse-nav li::before {
+            content: "▸";
+            font-size: 0.7rem;
+            color: #ff9f4a;
+            opacity: 0.7;
+        }
+
+        .active-nav {
+            background: #1f253f;
+            color: white !important;
+            border-left: 3px solid #ff7e05;
+        }
+
+        .theme-toggle {
+            margin-top: 1.5rem;
             padding: 0.5rem 1rem;
-            background: var(--bg-code);
-            border: 1px solid var(--border-card);
+            background: #1a1f32;
+            border: 1px solid #2a314b;
             border-radius: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             cursor: pointer;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 500;
-            color: var(--text-primary);
+            color: #b9c3e6;
             transition: all 0.2s;
         }
         .theme-toggle:hover {
@@ -156,68 +128,27 @@
             border-color: #ff7e05;
         }
 
-        .browse-nav {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.35rem;
-            margin-top: 1rem;
-        }
-
-        .browse-nav li {
-            font-weight: 500;
-            padding: 0.6rem 0.8rem;
-            border-radius: 14px;
-            transition: all 0.2s ease;
-            cursor: pointer;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .browse-nav li:hover {
-            background: var(--bg-code);
-            color: var(--text-primary);
-            transform: translateX(4px);
-        }
-
-        .browse-nav li::before {
-            content: "▸";
-            font-size: 0.7rem;
-            color: #ff9f4a;
-        }
-
-        .active-nav {
-            background: #1f253f;
-            color: white !important;
-            border-left: 3px solid #ff7e05;
-        }
-        body.dark .active-nav {
-            background: #2a314b;
-        }
-
+        /* MAIN CONTENT */
         .wiki-main {
             flex: 3.8;
             min-width: 280px;
         }
 
         .page-header {
+            background: #0f1322;
+            border-radius: 24px;
+            border: 1px solid #252b3d;
+            padding: 1rem 1.8rem;
+            margin-bottom: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1.2rem;
-            margin-bottom: 1.5rem;
-            background: var(--bg-sidebar);
-            border-radius: 32px;
-            padding: 0.8rem 1.8rem;
-            border: 1px solid var(--border-sidebar);
+            gap: 1rem;
         }
 
         .title-badge h1 {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             background: linear-gradient(135deg, #f0f3ff, #ffd7a5);
             -webkit-background-clip: text;
@@ -227,15 +158,15 @@
 
         .title-badge p {
             font-size: 0.7rem;
-            color: var(--text-secondary);
+            color: #8a98b9;
         }
 
         .owner-profile {
             display: flex;
             align-items: center;
             gap: 1rem;
-            background: var(--bg-code);
-            padding: 0.4rem 1.2rem 0.4rem 0.8rem;
+            background: #1a1f32;
+            padding: 0.3rem 1rem 0.3rem 0.8rem;
             border-radius: 100px;
             border: 1px solid #ffb34740;
         }
@@ -249,42 +180,47 @@
         }
 
         .owner-avatar {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: linear-gradient(135deg, #ff7e05, #ffb347);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: white;
             border: 2px solid #ff9f4a;
         }
 
         .owner-info .name {
-            font-size: 0.95rem;
-            color: var(--text-primary);
+            font-size: 0.9rem;
+            color: #ffd9a5;
+        }
+
+        .owner-info .tag {
+            font-size: 0.65rem;
+            color: #8a98b9;
         }
 
         .edit-meta {
             font-size: 0.7rem;
-            background: var(--edit-meta-bg);
+            background: #0e1222;
             padding: 0.3rem 1rem;
             border-radius: 40px;
             display: inline-block;
             margin-bottom: 1.2rem;
-            color: var(--edit-meta-text);
+            color: #8a98b9;
         }
         .edit-meta span {
             color: #ffaa66;
         }
 
         .content-panel {
-            background: var(--bg-panel);
-            border-radius: 28px;
-            border: 1px solid var(--border-card);
-            padding: 1.6rem 2rem;
+            background: #0f1322;
+            border-radius: 24px;
+            border: 1px solid #252b3d;
+            padding: 1.5rem 2rem;
             backdrop-filter: blur(2px);
             display: none;
         }
@@ -294,17 +230,17 @@
         }
 
         .panel-title {
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1.2rem;
-            border-left: 5px solid #ff7e05;
+            border-left: 4px solid #ff7e05;
             padding-left: 1rem;
-            color: var(--text-primary);
+            color: #eef2ff;
         }
 
         .clan-badge {
-            background: var(--clan-badge-bg);
-            border-radius: 18px;
+            background: #0b0f1a;
+            border-radius: 16px;
             padding: 1rem;
             margin: 1rem 0;
             border-left: 3px solid #ff9f4a;
@@ -318,39 +254,98 @@
         }
 
         .info-block {
-            background: var(--bg-info-block);
-            border-radius: 20px;
+            background: #0b0f1a;
+            border-radius: 16px;
             padding: 0.8rem;
-            flex: 1 1 180px;
+            flex: 1 1 170px;
+            border: 1px solid #1f253f;
         }
 
+        .info-block strong {
+            color: #ffaa66;
+        }
+
+        /* MEMBER LIST WITH AVATARS */
         .member-list-container {
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
+            gap: 1rem;
             margin-top: 0.5rem;
         }
 
-        .member-row {
-            background: var(--bg-member-row);
-            padding: 0.6rem 1rem;
+        .member-card {
+            background: #0b0f1a;
             border-radius: 16px;
+            padding: 0.7rem 1rem;
+            border: 1px solid #1f253f;
+            transition: all 0.2s;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 1rem;
             flex-wrap: wrap;
         }
 
+        .member-card:hover {
+            border-color: #ff7e05;
+            transform: translateX(5px);
+        }
+
+        .member-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #1a1f32;
+            overflow: hidden;
+            border: 2px solid #ff9f4a;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #ffaa66;
+            text-transform: uppercase;
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            flex: 1;
+        }
+
         .member-name {
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #eef2ff;
+        }
+
+        .member-username {
+            font-size: 0.7rem;
+            color: #8a98b9;
+            margin: 0.2rem 0;
+        }
+
+        .member-username a {
+            color: #8a98b9;
+            text-decoration: none;
+        }
+
+        .member-username a:hover {
+            color: #ffaa66;
+            text-decoration: underline;
         }
 
         .member-rank {
             font-size: 0.7rem;
             background: #1f253f;
-            padding: 0.2rem 0.7rem;
+            padding: 0.2rem 0.6rem;
             border-radius: 40px;
-            color: white;
+            display: inline-block;
+            color: #ffaa66;
         }
 
         .apply-button {
@@ -372,60 +367,128 @@
         }
 
         .social-link {
-            background: var(--bg-social);
+            background: #1a1f32;
             padding: 0.5rem 1rem;
             border-radius: 40px;
             text-decoration: none;
             color: #ffb26e;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: 0.2s;
+            border: 1px solid #2a314b;
         }
         .social-link:hover {
             background: #ff7e05;
             color: #0a0c1a;
         }
 
-        .rank-command { color: #ff4444; font-weight: bold; }
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .rank-item {
+            padding: 0.5rem 0.8rem;
+            border-radius: 12px;
+            background: #0b0f1a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            border: 1px solid #1f253f;
+        }
+        .rank-icon { font-size: 1rem; min-width: 24px; text-align: center; }
+        .rank-command { color: #ff5555; font-weight: bold; }
         .rank-staff { color: #ffaa44; font-weight: bold; }
         .rank-elite { color: #ffd700; font-weight: bold; }
         .rank-member { color: #88aaff; }
-        .rank-separator { color: #888; letter-spacing: 2px; font-size: 0.8rem; margin: 0.5rem 0; text-align: center; }
-        .rank-list { display: flex; flex-direction: column; gap: 0.5rem; }
-        .rank-item { padding: 0.5rem 0.8rem; border-radius: 12px; background: var(--bg-rank-item); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-        .rank-icon { font-size: 1.1rem; min-width: 24px; text-align: center; }
+        .rank-separator { color: #555; letter-spacing: 2px; font-size: 0.7rem; margin: 0.3rem 0; text-align: center; }
 
-        .conduct-list { list-style: none; margin: 1rem 0; }
-        .conduct-list li { margin-bottom: 0.8rem; padding-left: 1.2rem; border-left: 2px solid #ff7e05; }
+        .conduct-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .conduct-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1rem;
+            border-left: 2px solid #ff7e05;
+            color: #b9c3e6;
+        }
 
-        .faq-item { margin-bottom: 1.2rem; background: var(--bg-faq); padding: 0.8rem 1rem; border-radius: 16px; }
-        .faq-question { font-weight: bold; color: #ffaa44; margin-bottom: 0.3rem; }
-        .faq-answer { color: var(--text-secondary); padding-left: 0.5rem; border-left: 2px solid #ff7e05; }
+        .faq-item {
+            margin-bottom: 1rem;
+            background: #0b0f1a;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            border: 1px solid #1f253f;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #ffaa44;
+            margin-bottom: 0.3rem;
+        }
+        .faq-answer {
+            color: #b9c3e6;
+            padding-left: 0.5rem;
+            border-left: 2px solid #ff7e05;
+        }
 
-        .allies-list { display: flex; flex-direction: column; gap: 0.8rem; }
-        .ally-card { background: var(--bg-ally); padding: 0.8rem 1rem; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; border-left: 3px solid #ff7e05; }
-        .ally-info { display: flex; align-items: center; gap: 0.8rem; }
-        .ally-name { font-size: 1.1rem; font-weight: bold; color: #ffaa44; }
-        .ally-status { font-size: 0.7rem; color: #88ffaa; }
-        .ally-link { background: #1f253f; padding: 0.3rem 0.8rem; border-radius: 40px; text-decoration: none; color: #ffb26e; font-size: 0.75rem; transition: 0.2s; }
-        .ally-link:hover { background: #ff7e05; color: #0a0c1a; }
+        .allies-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .ally-card {
+            background: #0b0f1a;
+            padding: 0.8rem 1rem;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border: 1px solid #1f253f;
+        }
+        .ally-name {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #ffaa44;
+        }
+        .ally-link {
+            background: #1a1f32;
+            padding: 0.3rem 0.8rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #ffb26e;
+            font-size: 0.7rem;
+            transition: 0.2s;
+        }
+        .ally-link:hover {
+            background: #ff7e05;
+            color: #0a0c1a;
+        }
 
-        .footer-note { margin-top: 2rem; text-align: center; font-size: 0.7rem; color: var(--footer-text); border-top: 1px solid var(--border-card); padding-top: 1rem; }
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.65rem;
+            color: #5e6a8c;
+            border-top: 1px solid #1f253f;
+            padding-top: 1rem;
+        }
 
-        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
             background: #ff7e05;
             color: #0a0c1a;
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
             transition: all 0.2s;
@@ -447,43 +510,36 @@
             body { padding: 1rem; }
             .wiki-sidebar { position: relative; top: 0; }
             .content-panel { padding: 1rem; }
-            .rank-item { flex-wrap: wrap; }
-            .ally-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-            .back-to-top { bottom: 1rem; right: 1rem; width: 40px; height: 40px; font-size: 1.2rem; }
+            .member-card { flex-wrap: wrap; }
+            .member-avatar { width: 36px; height: 36px; }
+            .back-to-top { bottom: 1rem; right: 1rem; width: 38px; height: 38px; font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
 <div class="wiki-container">
     <aside class="wiki-sidebar">
-        <div class="sidebar-logo">
-            <div class="logo-icon">
-                <span>FST</span>
-                <span>FOREVERSTAND</span>
-            </div>
-            <div class="sidebar-header">FST WIKI</div>
-        </div>
-
+        <div class="sidebar-header">FST WIKI</div>
         <ul class="browse-nav">
+            <li class="nav-category">MAIN</li>
             <li data-panel="information">Information</li>
             <li data-panel="ranks">Ranks</li>
             <li data-panel="conduct">Code of Conduct</li>
             <li data-panel="faq">FAQ</li>
+            <li class="nav-category">CLAN</li>
             <li data-panel="allies">Allies</li>
             <li data-panel="apply">Apply</li>
             <li data-panel="owner">Owner</li>
             <li data-panel="memberlist">Member List</li>
+            <li class="nav-category">TESTS</li>
             <li data-panel="entrytest">Entry Test</li>
             <li data-panel="finaltest">Final Test</li>
+            <li class="nav-category">UPDATES</li>
             <li data-panel="news">News</li>
         </ul>
-
-        <div class="theme-toggle" id="themeToggle">
-            🌓 Dark / Light Mode
-        </div>
-        <div style="margin-top: 1rem; font-size: 0.65rem; background: var(--bg-code); border-radius: 20px; padding: 0.7rem; text-align: center; border: 1px solid var(--border-card);">
-            FST | Gangster Clan Of Rivals<br>
-            Forever Stand Together
+        <div class="theme-toggle" id="themeToggle">🌓 Dark / Light Mode</div>
+        <div style="margin-top: 1rem; font-size: 0.6rem; background: #0b0f1a; border-radius: 16px; padding: 0.6rem; text-align: center; border: 1px solid #1f253f;">
+            FST | Gangster Clan Of Rivals<br>Forever Stand Together
         </div>
     </aside>
 
@@ -519,7 +575,7 @@
                 <div class="info-block"><strong>Rivals Rank</strong><br>Top 100 Global</div>
                 <div class="info-block"><strong>Game Mode</strong><br>5v5 · Competitive</div>
             </div>
-            <div style="background: var(--bg-info-block); border-radius: 18px; padding: 0.8rem;">
+            <div style="background: #0b0f1a; border-radius: 16px; padding: 0.8rem; border: 1px solid #1f253f;">
                 <span>🔹 <strong>Current Status:</strong> Recruiting active gangsters | Tryouts every Friday 6PM UTC</span><br>
                 <span>🔹 <strong>Clan Wars:</strong> Weekly street battles vs top Rivals clans</span><br>
                 <span>🔹 <strong>Requirements:</strong> 50+ wins, microphone, loyalty to FST</span>
@@ -534,34 +590,28 @@
         <div id="panel-ranks" class="content-panel">
             <div class="panel-title">RANK STRUCTURE</div>
             <div class="rank-list">
-                <div class="rank-item"><span class="rank-icon">👑</span><span class="rank-command">Apex Command</span> <span style="color: var(--text-rank-desc);">- Highest Authority</span></div>
-                <div class="rank-item"><span class="rank-icon">⭐</span><span class="rank-command">Head Command</span> <span style="color: var(--text-rank-desc);">- Senior Leadership</span></div>
+                <div class="rank-item"><span class="rank-icon">👑</span><span class="rank-command">Apex Command</span> <span style="color:#8a98b9;">- Highest Authority</span></div>
+                <div class="rank-item"><span class="rank-icon">⭐</span><span class="rank-command">Head Command</span> <span style="color:#8a98b9;">- Senior Leadership</span></div>
                 <div class="rank-separator">─────── RANK ───────</div>
-                <div class="rank-item"><span class="rank-icon">📢</span><span class="rank-staff">Recruiter</span> <span style="color: var(--text-rank-desc);">- Recruitment Team</span></div>
-                <div class="rank-item"><span class="rank-icon">📋</span><span class="rank-staff">Director</span> <span style="color: var(--text-rank-desc);">- Division Management</span></div>
-                <div class="rank-item"><span class="rank-icon">👁️</span><span class="rank-staff">OVERSEER</span> <span style="color: var(--text-rank-desc);">- Supervision & Enforcement</span></div>
-                <div class="rank-item"><span class="rank-icon">🎫</span><span class="rank-staff">Ticketer</span> <span style="color: var(--text-rank-desc);">- Support & Tickets</span></div>
-                <div class="rank-item"><span class="rank-icon">⚔️</span><span class="rank-staff">Major</span> <span style="color: var(--text-rank-desc);">- Senior Officer</span></div>
-                <div class="rank-item"><span class="rank-icon">🔹</span><span class="rank-staff">Lieutenant</span> <span style="color: var(--text-rank-desc);">- Officer</span></div>
-                <div class="rank-item"><span class="rank-icon">🔸</span><span class="rank-staff">Sergeant</span> <span style="color: var(--text-rank-desc);">- Non-Commissioned Officer</span></div>
-                <div class="rank-item"><span class="rank-icon">🛡️</span><span class="rank-staff">Moderator</span> <span style="color: var(--text-rank-desc);">- Chat & Server Mod</span></div>
+                <div class="rank-item"><span class="rank-icon">📢</span><span class="rank-staff">Recruiter</span> <span style="color:#8a98b9;">- Recruitment Team</span></div>
+                <div class="rank-item"><span class="rank-icon">📋</span><span class="rank-staff">Director</span> <span style="color:#8a98b9;">- Division Management</span></div>
+                <div class="rank-item"><span class="rank-icon">👁️</span><span class="rank-staff">OVERSEER</span> <span style="color:#8a98b9;">- Supervision & Enforcement</span></div>
+                <div class="rank-item"><span class="rank-icon">🎫</span><span class="rank-staff">Ticketer</span> <span style="color:#8a98b9;">- Support & Tickets</span></div>
+                <div class="rank-item"><span class="rank-icon">⚔️</span><span class="rank-staff">Major</span> <span style="color:#8a98b9;">- Senior Officer</span></div>
+                <div class="rank-item"><span class="rank-icon">🔹</span><span class="rank-staff">Lieutenant</span> <span style="color:#8a98b9;">- Officer</span></div>
+                <div class="rank-item"><span class="rank-icon">🔸</span><span class="rank-staff">Sergeant</span> <span style="color:#8a98b9;">- Non-Commissioned Officer</span></div>
+                <div class="rank-item"><span class="rank-icon">🛡️</span><span class="rank-staff">Moderator</span> <span style="color:#8a98b9;">- Chat & Server Mod</span></div>
                 <div class="rank-separator">─────── LINE ───────</div>
-                <div class="rank-item"><span class="rank-icon">💎</span><span class="rank-elite">Elite Member</span> <span style="color: var(--text-rank-desc);">- Proven & Trusted</span></div>
+                <div class="rank-item"><span class="rank-icon">💎</span><span class="rank-elite">Elite Member</span> <span style="color:#8a98b9;">- Proven & Trusted</span></div>
                 <div class="rank-separator">─────── STATUS ───────</div>
-                <div class="rank-item"><span class="rank-icon">🟢</span><span class="rank-member">Member</span> <span style="color: var(--text-rank-desc);">- Active Clan Member</span></div>
-            </div>
-            <div style="margin-top: 1rem; font-size:0.75rem; background: var(--bg-info-block); padding:0.6rem; border-radius:12px;">
-                👑 Command = Red | 📢 Staff = Orange | 💎 Elite = Gold | 🟢 Member = Blue
+                <div class="rank-item"><span class="rank-icon">🟢</span><span class="rank-member">Member</span> <span style="color:#8a98b9;">- Active Clan Member</span></div>
             </div>
         </div>
 
         <!-- CODE OF CONDUCT -->
         <div id="panel-conduct" class="content-panel">
             <div class="panel-title">CODE OF CONDUCT</div>
-            <div class="clan-badge">
-                <strong>FST | Standards & Discipline</strong><br>
-                Every member represents the clan. Act accordingly.
-            </div>
+            <div class="clan-badge"><strong>FST | Standards & Discipline</strong><br>Every member represents the clan. Act accordingly.</div>
             <ul class="conduct-list">
                 <li><strong>1. Respect Everyone</strong> – No bullying, harassment, or hate speech.</li>
                 <li><strong>2. No Cheating / Exploiting</strong> – Zero tolerance = instant ban.</li>
@@ -570,10 +620,7 @@
                 <li><strong>5. Represent FST Well</strong> – No trolling other clans.</li>
                 <li><strong>6. No Account Sharing</strong> – Alt accounts used to bypass bans are forbidden.</li>
             </ul>
-            <div style="background: var(--bg-info-block); border-radius:16px; padding:0.8rem; margin-top:1rem;">
-                <strong>Punishment System</strong><br>
-                ⚠️ Warning → Suspension → Demotion → Ban
-            </div>
+            <div style="background:#0b0f1a; border-radius:14px; padding:0.8rem; border:1px solid #1f253f;"><strong>Punishment System:</strong> Warning → Suspension → Demotion → Ban</div>
         </div>
 
         <!-- FAQ -->
@@ -590,17 +637,13 @@
         <!-- ALLIES -->
         <div id="panel-allies" class="content-panel">
             <div class="panel-title">ALLIES & PARTNERS</div>
-            <div class="allies-list">
-                <div class="ally-card"><div class="ally-info"><div class="ally-name">SPG</div><div class="ally-status">Allied Clan</div></div><a href="https://discord.gg/7TXYGE6B" target="_blank" class="ally-link">Join SPG Discord →</a></div>
-            </div>
-            <div style="margin-top: 1rem; font-size:0.75rem; background: var(--bg-info-block); padding:0.6rem; border-radius:12px;">Trusted allies of FST. Respect them as your own clanmates.</div>
+            <div class="allies-list"><div class="ally-card"><div class="ally-name">SPG</div><a href="https://discord.gg/7TXYGE6B" target="_blank" class="ally-link">Join SPG Discord →</a></div></div>
         </div>
 
         <!-- APPLY -->
         <div id="panel-apply" class="content-panel">
             <div class="panel-title">APPLY TO JOIN FST</div>
-            <div style="background: var(--bg-code); border-radius: 24px; padding: 1.2rem;">
-                <p>Click below to open our Discord application channel.</p>
+            <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
                 <a href="https://discord.com/channels/1478711010092388392/1478711011505868843" target="_blank" class="apply-button">APPLY NOW →</a>
             </div>
         </div>
@@ -608,28 +651,108 @@
         <!-- OWNER -->
         <div id="panel-owner" class="content-panel">
             <div class="panel-title">CLAN OWNER</div>
-            <div style="background: var(--bg-code); border-radius: 24px; padding: 1rem;">
-                <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-                    <div class="owner-avatar" style="width: 64px; height: 64px; font-size: 32px;">F</div>
-                    <div><h3 style="font-size: 1.4rem;">fistygamerz</h3><p>Founder & Street Boss</p><a href="https://www.roblox.com/users/4221202613/profile" target="_blank" style="color:#ffb26e;">Roblox Profile →</a></div>
+            <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
+                <div style="display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
+                    <div class="owner-avatar" style="width:60px; height:60px; font-size:28px;">F</div>
+                    <div><h3 style="font-size:1.3rem;">fistygamerz</h3><p>Founder & Street Boss</p><a href="https://www.roblox.com/users/4221202613/profile" target="_blank" style="color:#ffb26e;">Roblox Profile →</a></div>
                 </div>
             </div>
         </div>
 
-        <!-- MEMBER LIST (UPDATED - REMOVED v4rac, abeergaming_, 4yp2) -->
+        <!-- MEMBER LIST WITH FIXED AVATARS (using proxy + fallback) -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
-                <div class="member-row"><span class="member-name">fistygamerz</span><span class="member-rank">Founder</span></div>
-                <div class="member-row"><span class="member-name">Ninj_121</span><span class="member-rank">Major</span></div>
-                <div class="member-row"><span class="member-name">Esus2141</span><span class="member-rank">Major</span></div>
-                <div class="member-row"><span class="member-name">SoulWalker9</span><span class="member-rank">Major</span></div>
-                <div class="member-row"><span class="member-name">yoyoayoAynusgaming</span><span class="member-rank">Director</span></div>
-                <div class="member-row"><span class="member-name">KingOfGodgilla6</span><span class="member-rank">Director</span></div>
-                <div class="member-row"><span class="member-name">Elysianayaann</span><span class="member-rank">Director</span></div>
-                <div class="member-row"><span class="member-name">Gupta_286</span><span class="member-rank">Overseer</span></div>
-                <div class="member-row"><span class="member-name">mayend129</span><span class="member-rank">Overseer</span></div>
-                <div class="member-row"><span class="member-name">siddu745</span><span class="member-rank">Sergeant</span></div>
+                <!-- fistygamerz -->
+                <div class="member-card" data-userid="4221202613" data-name="fistygamerz">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">fistygamerz</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/4221202613/profile" target="_blank">@fistygamerz</a></div>
+                        <div class="member-rank">Founder</div>
+                    </div>
+                </div>
+                <!-- Ninj_121 -->
+                <div class="member-card" data-userid="4802237225" data-name="Ninj_121">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">Ninj_121</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/4802237225/profile" target="_blank">@Ninj_121</a></div>
+                        <div class="member-rank">Major</div>
+                    </div>
+                </div>
+                <!-- Esus2141 -->
+                <div class="member-card" data-userid="9835627366" data-name="Esus2141">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">Esus2141</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/9835627366/profile" target="_blank">@Esus2141</a></div>
+                        <div class="member-rank">Major</div>
+                    </div>
+                </div>
+                <!-- SoulWalker9 -->
+                <div class="member-card" data-userid="7212579553" data-name="SoulWalker9">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">SoulWalker9</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/7212579553/profile" target="_blank">@SoulWalker9</a></div>
+                        <div class="member-rank">Major</div>
+                    </div>
+                </div>
+                <!-- yoyoayoAynusgaming -->
+                <div class="member-card" data-userid="2781642295" data-name="yoyoayoAynusgaming">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">yoyoayoAynusgaming</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/2781642295/profile" target="_blank">@yoyoayoAynusgaming</a></div>
+                        <div class="member-rank">Director</div>
+                    </div>
+                </div>
+                <!-- KingOfGodgilla6 -->
+                <div class="member-card" data-userid="6113422837" data-name="KingOfGodgilla6">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">KingOfGodgilla6</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/6113422837/profile" target="_blank">@KingOfGodgilla6</a></div>
+                        <div class="member-rank">Director</div>
+                    </div>
+                </div>
+                <!-- Elysianayaann -->
+                <div class="member-card" data-userid="10318241652" data-name="Elysianayaann">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">Elysianayaann</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/10318241652/profile" target="_blank">@Elysianayaann</a></div>
+                        <div class="member-rank">Director</div>
+                    </div>
+                </div>
+                <!-- Gupta_286 -->
+                <div class="member-card" data-userid="7413172881" data-name="Gupta_286">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">Gupta_286</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/7413172881/profile" target="_blank">@Gupta_286</a></div>
+                        <div class="member-rank">Overseer</div>
+                    </div>
+                </div>
+                <!-- mayend129 -->
+                <div class="member-card" data-userid="4226766477" data-name="mayend129">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">mayend129</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/4226766477/profile" target="_blank">@mayend129</a></div>
+                        <div class="member-rank">Overseer</div>
+                    </div>
+                </div>
+                <!-- siddu745 -->
+                <div class="member-card" data-userid="5214357032" data-name="siddu745">
+                    <div class="member-avatar"></div>
+                    <div class="member-info">
+                        <div class="member-name">siddu745</div>
+                        <div class="member-username"><a href="https://www.roblox.com/users/5214357032/profile" target="_blank">@siddu745</a></div>
+                        <div class="member-rank">Sergeant</div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -648,11 +771,8 @@
         <!-- NEWS -->
         <div id="panel-news" class="content-panel">
             <div class="panel-title">LATEST NEWS</div>
-            <div style="background: var(--bg-code); border-radius: 24px; padding: 1.2rem;">
-                FST | Gangster Forever Stand Together<br><br>
-                Welcome to the official Rivals division of FST.<br>
-                We move smart. We play to win.<br><br>
-                Gangster Forever. Stand Together.
+            <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
+                FST | Gangster Forever Stand Together<br><br>Welcome to the official Rivals division of FST.<br>We move smart. We play to win.<br><br>Gangster Forever. Stand Together.
             </div>
         </div>
 
@@ -660,36 +780,35 @@
     </main>
 </div>
 
-<!-- Back to Top Button -->
 <button class="back-to-top" id="backToTopBtn">↑</button>
 
 <script>
-    // Back to Top Button
+    // Back to Top
     const backBtn = document.getElementById('backToTopBtn');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backBtn.classList.add('show');
-        } else {
-            backBtn.classList.remove('show');
-        }
+        if (window.scrollY > 300) backBtn.classList.add('show');
+        else backBtn.classList.remove('show');
     });
-    backBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     // Dark/Light Mode
     const toggleBtn = document.getElementById('themeToggle');
     const body = document.body;
-    if (localStorage.getItem('theme') === 'dark') {
-        body.classList.add('dark');
+    if (localStorage.getItem('theme') === 'light') {
+        body.style.background = "#f0f2f5";
     }
     toggleBtn.addEventListener('click', () => {
-        body.classList.toggle('dark');
-        localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+        if (body.style.background === "rgb(240, 242, 245)") {
+            body.style.background = "#0b0f1c";
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.style.background = "#f0f2f5";
+            localStorage.setItem('theme', 'light');
+        }
     });
 
     // Navigation
-    const navItems = document.querySelectorAll('.browse-nav li');
+    const navItems = document.querySelectorAll('.browse-nav li[data-panel]');
     const panels = {
         information: document.getElementById('panel-information'),
         ranks: document.getElementById('panel-ranks'),
@@ -718,6 +837,39 @@
         });
     });
     activatePanel('information');
+
+    // Load avatars with proxy and fallback
+    function loadAvatar(card) {
+        const userId = card.getAttribute('data-userid');
+        const name = card.getAttribute('data-name');
+        const avatarDiv = card.querySelector('.member-avatar');
+        if (!userId || !avatarDiv) return;
+
+        // Try Roblox thumbnail via CORS proxy
+        const proxyUrl = `https://corsproxy.io/?url=https://www.roblox.com/headshot-thumbnail/avatar?userId=${userId}&width=60&height=60&format=png`;
+        const img = new Image();
+        img.onload = () => {
+            avatarDiv.innerHTML = '';
+            avatarDiv.appendChild(img);
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+        };
+        img.onerror = () => {
+            // Fallback: first letter of name
+            avatarDiv.innerHTML = name.charAt(0).toUpperCase();
+            avatarDiv.style.display = 'flex';
+            avatarDiv.style.alignItems = 'center';
+            avatarDiv.style.justifyContent = 'center';
+            avatarDiv.style.fontSize = '1.2rem';
+            avatarDiv.style.fontWeight = 'bold';
+            avatarDiv.style.color = '#ffaa66';
+            avatarDiv.style.background = '#1a1f32';
+        };
+        img.src = proxyUrl;
+    }
+
+    document.querySelectorAll('.member-card').forEach(card => loadAvatar(card));
 </script>
 </body>
 </html>
