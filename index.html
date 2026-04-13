@@ -9,12 +9,61 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.1s ease;
+        }
+
+        /* Light Mode Variables (default) */
+        :root {
+            --bg-body: #f0f2f5;
+            --bg-sidebar: #ffffff;
+            --border-sidebar: #e2e8f0;
+            --text-primary: #1a2634;
+            --text-secondary: #4a5b6e;
+            --bg-card: #ffffff;
+            --border-card: #eef2f8;
+            --bg-panel: #ffffff;
+            --bg-code: #f8fafc;
+            --bg-info-block: #f1f5f9;
+            --bg-member-row: #f8fafc;
+            --bg-ally: #f8fafc;
+            --bg-faq: #f8fafc;
+            --bg-rank-item: #f8fafc;
+            --bg-social: #eef2ff;
+            --text-rank-desc: #5b6e8c;
+            --footer-text: #7c8ea0;
+            --edit-meta-bg: #eef2f6;
+            --edit-meta-text: #2c5282;
+            --clan-badge-bg: #f1f5f9;
+        }
+
+        /* Dark Mode Variables */
+        body.dark {
+            --bg-body: #0a0d15;
+            --bg-sidebar: #0f1322;
+            --border-sidebar: #252b3d;
+            --text-primary: #eef2ff;
+            --text-secondary: #a9b7e0;
+            --bg-card: #0c1020e6;
+            --border-card: #242b3f;
+            --bg-panel: #0c1020e6;
+            --bg-code: #10152a;
+            --bg-info-block: #0a0e1c;
+            --bg-member-row: #10152a;
+            --bg-ally: #10152a;
+            --bg-faq: #10152a;
+            --bg-rank-item: #10152a;
+            --bg-social: #1f253f;
+            --text-rank-desc: #8d9bcc;
+            --footer-text: #5e6a8c;
+            --edit-meta-bg: #0e1222;
+            --edit-meta-text: #b9c7f0;
+            --clan-badge-bg: #171d32;
         }
 
         body {
-            background: #0a0d15;
+            background: var(--bg-body);
             font-family: 'Inter', system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            color: #eef2ff;
+            color: var(--text-primary);
             line-height: 1.5;
             padding: 2rem 1.5rem;
         }
@@ -30,12 +79,12 @@
         .wiki-sidebar {
             flex: 1.2;
             min-width: 260px;
-            background: #0f1322;
+            background: var(--bg-sidebar);
             border-radius: 28px;
-            border: 1px solid #252b3d;
+            border: 1px solid var(--border-sidebar);
             padding: 1.8rem 1.2rem;
             backdrop-filter: blur(2px);
-            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.2);
             height: fit-content;
             position: sticky;
             top: 1.5rem;
@@ -86,12 +135,35 @@
             color: transparent;
         }
 
+        /* Theme Toggle Button */
+        .theme-toggle {
+            margin-top: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-code);
+            border: 1px solid var(--border-card);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+        .theme-toggle:hover {
+            background: #ff7e05;
+            color: #0a0c1a;
+            border-color: #ff7e05;
+        }
+
         .browse-nav {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 0.35rem;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
 
         .browse-nav li {
@@ -100,7 +172,7 @@
             border-radius: 14px;
             transition: all 0.2s ease;
             cursor: pointer;
-            color: #b9c3e6;
+            color: var(--text-secondary);
             font-size: 0.95rem;
             display: flex;
             align-items: center;
@@ -108,8 +180,8 @@
         }
 
         .browse-nav li:hover {
-            background: #1a1f32;
-            color: white;
+            background: var(--bg-code);
+            color: var(--text-primary);
             transform: translateX(4px);
         }
 
@@ -124,6 +196,9 @@
             color: white !important;
             border-left: 3px solid #ff7e05;
         }
+        body.dark .active-nav {
+            background: #2a314b;
+        }
 
         .wiki-main {
             flex: 3.8;
@@ -137,10 +212,10 @@
             flex-wrap: wrap;
             gap: 1.2rem;
             margin-bottom: 1.5rem;
-            background: #0b0f1c;
+            background: var(--bg-sidebar);
             border-radius: 32px;
             padding: 0.8rem 1.8rem;
-            border: 1px solid #262d42;
+            border: 1px solid var(--border-sidebar);
         }
 
         .title-badge h1 {
@@ -154,14 +229,14 @@
 
         .title-badge p {
             font-size: 0.7rem;
-            color: #a9b7e0;
+            color: var(--text-secondary);
         }
 
         .owner-profile {
             display: flex;
             align-items: center;
             gap: 1rem;
-            background: #12172b;
+            background: var(--bg-code);
             padding: 0.4rem 1.2rem 0.4rem 0.8rem;
             border-radius: 100px;
             border: 1px solid #ffb34740;
@@ -191,22 +266,26 @@
 
         .owner-info .name {
             font-size: 0.95rem;
-            color: #ffd9a5;
+            color: var(--text-primary);
         }
 
         .edit-meta {
             font-size: 0.7rem;
-            background: #0e1222;
+            background: var(--edit-meta-bg);
             padding: 0.3rem 1rem;
             border-radius: 40px;
             display: inline-block;
             margin-bottom: 1.2rem;
+            color: var(--edit-meta-text);
+        }
+        .edit-meta span {
+            color: #ffaa66;
         }
 
         .content-panel {
-            background: #0c1020e6;
+            background: var(--bg-panel);
             border-radius: 28px;
-            border: 1px solid #242b3f;
+            border: 1px solid var(--border-card);
             padding: 1.6rem 2rem;
             backdrop-filter: blur(2px);
             display: none;
@@ -222,10 +301,11 @@
             margin-bottom: 1.2rem;
             border-left: 5px solid #ff7e05;
             padding-left: 1rem;
+            color: var(--text-primary);
         }
 
         .clan-badge {
-            background: #171d32;
+            background: var(--clan-badge-bg);
             border-radius: 18px;
             padding: 1rem;
             margin: 1rem 0;
@@ -240,7 +320,7 @@
         }
 
         .info-block {
-            background: #0a0e1c;
+            background: var(--bg-info-block);
             border-radius: 20px;
             padding: 0.8rem;
             flex: 1 1 180px;
@@ -254,7 +334,7 @@
         }
 
         .member-row {
-            background: #10152a;
+            background: var(--bg-member-row);
             padding: 0.6rem 1rem;
             border-radius: 16px;
             display: flex;
@@ -272,6 +352,7 @@
             background: #1f253f;
             padding: 0.2rem 0.7rem;
             border-radius: 40px;
+            color: white;
         }
 
         .apply-button {
@@ -293,7 +374,7 @@
         }
 
         .social-link {
-            background: #1f253f;
+            background: var(--bg-social);
             padding: 0.5rem 1rem;
             border-radius: 40px;
             text-decoration: none;
@@ -301,110 +382,43 @@
             font-size: 0.85rem;
             transition: 0.2s;
         }
-
         .social-link:hover {
             background: #ff7e05;
             color: #0a0c1a;
         }
 
-        .rank-command {
-            color: #ff4444;
-            font-weight: bold;
-        }
-        .rank-staff {
-            color: #ffaa44;
-            font-weight: bold;
-        }
-        .rank-elite {
-            color: #ffd700;
-            font-weight: bold;
-        }
-        .rank-member {
-            color: #88aaff;
-        }
-        .rank-separator {
-            color: #555;
-            letter-spacing: 2px;
-            font-size: 0.8rem;
-            margin: 0.5rem 0;
-            text-align: center;
-        }
+        .rank-command { color: #ff4444; font-weight: bold; }
+        .rank-staff { color: #ffaa44; font-weight: bold; }
+        .rank-elite { color: #ffd700; font-weight: bold; }
+        .rank-member { color: #88aaff; }
+        .rank-separator { color: #888; letter-spacing: 2px; font-size: 0.8rem; margin: 0.5rem 0; text-align: center; }
+        .rank-list { display: flex; flex-direction: column; gap: 0.5rem; }
+        .rank-item { padding: 0.5rem 0.8rem; border-radius: 12px; background: var(--bg-rank-item); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .rank-icon { font-size: 1.1rem; min-width: 24px; text-align: center; }
 
-        .rank-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .rank-item {
-            padding: 0.4rem 0.8rem;
-            border-radius: 12px;
-            background: #10152a;
-        }
+        .conduct-list { list-style: none; margin: 1rem 0; }
+        .conduct-list li { margin-bottom: 0.8rem; padding-left: 1.2rem; border-left: 2px solid #ff7e05; }
 
-        .conduct-list {
-            list-style: none;
-            margin: 1rem 0;
-        }
-        .conduct-list li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.2rem;
-            border-left: 2px solid #ff7e05;
-        }
+        .faq-item { margin-bottom: 1.2rem; background: var(--bg-faq); padding: 0.8rem 1rem; border-radius: 16px; }
+        .faq-question { font-weight: bold; color: #ffaa44; margin-bottom: 0.3rem; }
+        .faq-answer { color: var(--text-secondary); padding-left: 0.5rem; border-left: 2px solid #ff7e05; }
 
-        .faq-item {
-            margin-bottom: 1.2rem;
-            background: #10152a;
-            padding: 0.8rem 1rem;
-            border-radius: 16px;
-        }
-        .faq-question {
-            font-weight: bold;
-            color: #ffaa44;
-            margin-bottom: 0.3rem;
-        }
-        .faq-answer {
-            color: #b9c3e6;
-            padding-left: 0.5rem;
-            border-left: 2px solid #ff7e05;
-        }
+        .allies-list { display: flex; flex-direction: column; gap: 0.8rem; }
+        .ally-card { background: var(--bg-ally); padding: 0.8rem 1rem; border-radius: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; border-left: 3px solid #ff7e05; }
+        .ally-info { display: flex; align-items: center; gap: 0.8rem; }
+        .ally-name { font-size: 1.1rem; font-weight: bold; color: #ffaa44; }
+        .ally-status { font-size: 0.7rem; color: #88ffaa; }
+        .ally-link { background: #1f253f; padding: 0.3rem 0.8rem; border-radius: 40px; text-decoration: none; color: #ffb26e; font-size: 0.75rem; transition: 0.2s; }
+        .ally-link:hover { background: #ff7e05; color: #0a0c1a; }
 
-        .allies-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-        .ally-card {
-            background: #10152a;
-            padding: 0.8rem 1rem;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            border-left: 3px solid #ff7e05;
-        }
-        .ally-name {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #ffaa44;
-        }
-        .ally-status {
-            font-size: 0.7rem;
-            color: #88ffaa;
-        }
-
-        .footer-note {
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.7rem;
-            color: #5e6a8c;
-            border-top: 1px solid #222838;
-            padding-top: 1rem;
-        }
+        .footer-note { margin-top: 2rem; text-align: center; font-size: 0.7rem; color: var(--footer-text); border-top: 1px solid var(--border-card); padding-top: 1rem; }
 
         @media (max-width: 780px) {
             body { padding: 1rem; }
             .wiki-sidebar { position: relative; top: 0; }
             .content-panel { padding: 1rem; }
+            .rank-item { flex-wrap: wrap; }
+            .ally-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
         }
     </style>
 </head>
@@ -431,7 +445,11 @@
             <li data-panel="finaltest">Final Test</li>
             <li data-panel="news">News</li>
         </ul>
-        <div style="margin-top: 2rem; font-size: 0.65rem; background: #0a0e1c; border-radius: 20px; padding: 0.7rem; text-align: center;">
+        <!-- Dark/Light Mode Toggle Button -->
+        <div class="theme-toggle" id="themeToggle">
+            🌓 Dark / Light Mode
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.65rem; background: var(--bg-code); border-radius: 20px; padding: 0.7rem; text-align: center; border: 1px solid var(--border-card);">
             FST | Gangster Clan Of Rivals<br>
             Forever Stand Together
         </div>
@@ -454,7 +472,7 @@
             </div>
         </div>
 
-        <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/12/2026</div>
+        <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/13/2026</div>
 
         <!-- INFORMATION PANEL -->
         <div id="panel-information" class="content-panel active-panel">
@@ -469,7 +487,7 @@
                 <div class="info-block"><strong>Rivals Rank</strong><br>Top 100 Global</div>
                 <div class="info-block"><strong>Game Mode</strong><br>5v5 · Competitive</div>
             </div>
-            <div style="background: #0e1428; border-radius: 18px; padding: 0.8rem;">
+            <div style="background: var(--bg-info-block); border-radius: 18px; padding: 0.8rem;">
                 <span>🔹 <strong>Current Status:</strong> Recruiting active gangsters | Tryouts every Friday 6PM UTC</span><br>
                 <span>🔹 <strong>Clan Wars:</strong> Weekly street battles vs top Rivals clans</span><br>
                 <span>🔹 <strong>Requirements:</strong> 50+ wins, microphone, loyalty to FST</span>
@@ -484,28 +502,28 @@
         <div id="panel-ranks" class="content-panel">
             <div class="panel-title">RANK STRUCTURE</div>
             <div class="rank-list">
-                <div class="rank-item"><span class="rank-command">★ Apex Command</span> <span style="color:#888;">- Highest Authority</span></div>
-                <div class="rank-item"><span class="rank-command">★ Head Command</span> <span style="color:#888;">- Senior Leadership</span></div>
+                <div class="rank-item"><span class="rank-icon">👑</span><span class="rank-command">Apex Command</span> <span style="color: var(--text-rank-desc);">- Highest Authority</span></div>
+                <div class="rank-item"><span class="rank-icon">⭐</span><span class="rank-command">Head Command</span> <span style="color: var(--text-rank-desc);">- Senior Leadership</span></div>
                 <div class="rank-separator">─────── RANK ───────</div>
-                <div class="rank-item"><span class="rank-staff">◆ Recruiter</span> <span style="color:#888;">- Recruitment Team</span></div>
-                <div class="rank-item"><span class="rank-staff">◆ Director</span> <span style="color:#888;">- Division Management</span></div>
-                <div class="rank-item"><span class="rank-staff">◆ OVERSEER</span> <span style="color:#888;">- Supervision & Enforcement</span></div>
-                <div class="rank-item"><span class="rank-staff">◆ Ticketer</span> <span style="color:#888;">- Support & Tickets</span></div>
-                <div class="rank-item"><span class="rank-staff">◆ Major</span> <span style="color:#888;">- Senior Officer</span></div>
-                <div class="rank-item"><span class="rank-staff">◆ Lieutenant</span> <span style="color:#888;">- Officer</span></div>
-                <div class="rank-item"><span class="rank-staff">◆ Sergeant</span> <span style="color:#888;">- Non-Commissioned Officer</span></div>
-                <div class="rank-item"><span class="rank-staff">◆ Moderator</span> <span style="color:#888;">- Chat & Server Mod</span></div>
+                <div class="rank-item"><span class="rank-icon">📢</span><span class="rank-staff">Recruiter</span> <span style="color: var(--text-rank-desc);">- Recruitment Team</span></div>
+                <div class="rank-item"><span class="rank-icon">📋</span><span class="rank-staff">Director</span> <span style="color: var(--text-rank-desc);">- Division Management</span></div>
+                <div class="rank-item"><span class="rank-icon">👁️</span><span class="rank-staff">OVERSEER</span> <span style="color: var(--text-rank-desc);">- Supervision & Enforcement</span></div>
+                <div class="rank-item"><span class="rank-icon">🎫</span><span class="rank-staff">Ticketer</span> <span style="color: var(--text-rank-desc);">- Support & Tickets</span></div>
+                <div class="rank-item"><span class="rank-icon">⚔️</span><span class="rank-staff">Major</span> <span style="color: var(--text-rank-desc);">- Senior Officer</span></div>
+                <div class="rank-item"><span class="rank-icon">🔹</span><span class="rank-staff">Lieutenant</span> <span style="color: var(--text-rank-desc);">- Officer</span></div>
+                <div class="rank-item"><span class="rank-icon">🔸</span><span class="rank-staff">Sergeant</span> <span style="color: var(--text-rank-desc);">- Non-Commissioned Officer</span></div>
+                <div class="rank-item"><span class="rank-icon">🛡️</span><span class="rank-staff">Moderator</span> <span style="color: var(--text-rank-desc);">- Chat & Server Mod</span></div>
                 <div class="rank-separator">─────── LINE ───────</div>
-                <div class="rank-item"><span class="rank-elite">◇ Elite Member</span> <span style="color:#888;">- Proven & Trusted</span></div>
+                <div class="rank-item"><span class="rank-icon">💎</span><span class="rank-elite">Elite Member</span> <span style="color: var(--text-rank-desc);">- Proven & Trusted</span></div>
                 <div class="rank-separator">─────── STATUS ───────</div>
-                <div class="rank-item"><span class="rank-member">○ Member</span> <span style="color:#888;">- Active Clan Member</span></div>
+                <div class="rank-item"><span class="rank-icon">🟢</span><span class="rank-member">Member</span> <span style="color: var(--text-rank-desc);">- Active Clan Member</span></div>
             </div>
-            <div style="margin-top: 1rem; font-size:0.75rem; background:#0e1428; padding:0.6rem; border-radius:12px;">
-                🔴 Command = Red &nbsp;&nbsp;|&nbsp;&nbsp; 🟠 Staff = Orange &nbsp;&nbsp;|&nbsp;&nbsp; 🟡 Elite = Gold &nbsp;&nbsp;|&nbsp;&nbsp; 🔵 Member = Blue
+            <div style="margin-top: 1rem; font-size:0.75rem; background: var(--bg-info-block); padding:0.6rem; border-radius:12px;">
+                👑 Command = Red | 📢 Staff = Orange | 💎 Elite = Gold | 🟢 Member = Blue
             </div>
         </div>
 
-        <!-- CODE OF CONDUCT PANEL -->
+        <!-- CODE OF CONDUCT -->
         <div id="panel-conduct" class="content-panel">
             <div class="panel-title">CODE OF CONDUCT</div>
             <div class="clan-badge">
@@ -513,110 +531,60 @@
                 Every member represents the clan. Act accordingly.
             </div>
             <ul class="conduct-list">
-                <li><strong>1. Respect Everyone</strong> – No bullying, harassment, or hate speech. Be respectful to teammates and opponents.</li>
-                <li><strong>2. No Cheating / Exploiting</strong> – No aimbot, wallhacks, or glitches. Zero tolerance = instant ban.</li>
-                <li><strong>3. Be Active</strong> – Log in at least once a week. Inform staff about inactivity. 30 days inactive = removal.</li>
-                <li><strong>4. Follow Staff Instructions</strong> – Listen to Command & Staff members. Appeals must be private.</li>
-                <li><strong>5. Represent FST Well</strong> – No trolling other clans, no drama. Wear FST uniform during wars.</li>
-                <li><strong>6. No Account Sharing</strong> – Do not share your Roblox account. Alt accounts used to bypass bans are forbidden.</li>
+                <li><strong>1. Respect Everyone</strong> – No bullying, harassment, or hate speech.</li>
+                <li><strong>2. No Cheating / Exploiting</strong> – Zero tolerance = instant ban.</li>
+                <li><strong>3. Be Active</strong> – Log in at least once a week. 30 days inactive = removal.</li>
+                <li><strong>4. Follow Staff Instructions</strong> – Appeals must be private.</li>
+                <li><strong>5. Represent FST Well</strong> – No trolling other clans.</li>
+                <li><strong>6. No Account Sharing</strong> – Alt accounts used to bypass bans are forbidden.</li>
             </ul>
-            <div style="background:#1a1f32; border-radius:16px; padding:0.8rem; margin-top:1rem;">
+            <div style="background: var(--bg-info-block); border-radius:16px; padding:0.8rem; margin-top:1rem;">
                 <strong>Punishment System</strong><br>
-                ⚠️ First Warning → Verbal warning<br>
-                ⚠️ Second Offense → 3-day suspension<br>
-                ⚠️ Third Offense → Demotion / Rank reset<br>
-                ❌ Severe Offense (cheating, hate speech) → Immediate Ban
+                ⚠️ Warning → Suspension → Demotion → Ban
             </div>
         </div>
 
-        <!-- FAQ PANEL -->
+        <!-- FAQ -->
         <div id="panel-faq" class="content-panel">
             <div class="panel-title">FREQUENTLY ASKED QUESTIONS</div>
-            <div class="faq-item">
-                <div class="faq-question">❓ How do I join FST?</div>
-                <div class="faq-answer">Click the "Apply" button in the sidebar and follow the instructions to open our Discord application channel.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ What are the requirements to join?</div>
-                <div class="faq-answer">50+ Rivals wins, a working microphone, and loyalty to FST.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ How do I rank up?</div>
-                <div class="faq-answer">Be active, participate in clan wars, help recruit new members, and show leadership skills.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ I'm going to be inactive. What should I do?</div>
-                <div class="faq-answer">Inform a Director or Overseer. We offer inactive status so you don't get removed.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ Can I leave and rejoin later?</div>
-                <div class="faq-answer">Yes, but repeated leaving may result in a longer re-entry cooldown.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ What happens if I break a rule?</div>
-                <div class="faq-answer">First warning → 3-day suspension → Demotion → Ban (depending on severity).</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ How do I report someone?</div>
-                <div class="faq-answer">Contact any Moderator or Director via Discord DM or create a ticket.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ Does FST accept content creators?</div>
-                <div class="faq-answer">Yes! We support streamers and YouTubers. Contact Owner for a Creator role.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ Where do I find clan announcements?</div>
-                <div class="faq-answer">Check the "News" panel on this wiki or the #announcements channel on Discord.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">❓ Who do I contact for help?</div>
-                <div class="faq-answer">Tag @Moderator in Discord or open a support ticket.</div>
-            </div>
+            <div class="faq-item"><div class="faq-question">How do I join FST?</div><div class="faq-answer">Click "Apply" in the sidebar.</div></div>
+            <div class="faq-item"><div class="faq-question">Requirements?</div><div class="faq-answer">50+ wins, mic, loyalty.</div></div>
+            <div class="faq-item"><div class="faq-question">How to rank up?</div><div class="faq-answer">Be active, join wars, help recruit.</div></div>
+            <div class="faq-item"><div class="faq-question">Going inactive?</div><div class="faq-answer">Tell a Director or Overseer.</div></div>
+            <div class="faq-item"><div class="faq-question">Breaking rules?</div><div class="faq-answer">Warning → Suspension → Demotion → Ban.</div></div>
+            <div class="faq-item"><div class="faq-question">How to report someone?</div><div class="faq-answer">DM a Moderator or open a ticket.</div></div>
         </div>
 
-        <!-- ALLIES PANEL -->
+        <!-- ALLIES -->
         <div id="panel-allies" class="content-panel">
             <div class="panel-title">ALLIES & PARTNERS</div>
             <div class="allies-list">
-                <div class="ally-card">
-                    <div>
-                        <div class="ally-name">SPG</div>
-                        <div class="ally-status">🤝 Allied Clan</div>
-                    </div>
-                </div>
+                <div class="ally-card"><div class="ally-info"><div class="ally-name">SPG</div><div class="ally-status">Allied Clan</div></div><a href="https://discord.gg/7TXYGE6B" target="_blank" class="ally-link">Join SPG Discord →</a></div>
             </div>
-            <div style="margin-top: 1rem; font-size:0.75rem; background:#0e1428; padding:0.6rem; border-radius:12px;">
-                🤝 These clans are trusted allies of FST. Respect them as you would your own clanmates.
-            </div>
+            <div style="margin-top: 1rem; font-size:0.75rem; background: var(--bg-info-block); padding:0.6rem; border-radius:12px;">Trusted allies of FST. Respect them as your own clanmates.</div>
         </div>
 
-        <!-- APPLY PANEL -->
+        <!-- APPLY -->
         <div id="panel-apply" class="content-panel">
             <div class="panel-title">APPLY TO JOIN FST</div>
-            <div style="background: #131a2e; border-radius: 24px; padding: 1.2rem;">
-                <p>Ready to become a street legend? Click below to open our Discord application channel.</p>
+            <div style="background: var(--bg-code); border-radius: 24px; padding: 1.2rem;">
+                <p>Click below to open our Discord application channel.</p>
                 <a href="https://discord.com/channels/1478711010092388392/1478711011505868843" target="_blank" class="apply-button">APPLY NOW →</a>
-                <div style="margin-top: 0.8rem; font-size:0.7rem;">Direct link to #apply channel on Discord. Fill the form and meet requirements.</div>
             </div>
         </div>
 
-        <!-- OWNER PANEL -->
+        <!-- OWNER -->
         <div id="panel-owner" class="content-panel">
             <div class="panel-title">CLAN OWNER</div>
-            <div style="background: #10152a; border-radius: 24px; padding: 1rem;">
+            <div style="background: var(--bg-code); border-radius: 24px; padding: 1rem;">
                 <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
                     <div class="owner-avatar" style="width: 64px; height: 64px; font-size: 32px;">F</div>
-                    <div>
-                        <h3 style="font-size: 1.4rem;">fistygamerz</h3>
-                        <p>Founder & Street Boss</p>
-                        <a href="https://www.roblox.com/users/4221202613/profile" target="_blank" style="color:#ffb26e;">Roblox Profile →</a>
-                    </div>
+                    <div><h3 style="font-size: 1.4rem;">fistygamerz</h3><p>Founder & Street Boss</p><a href="https://www.roblox.com/users/4221202613/profile" target="_blank" style="color:#ffb26e;">Roblox Profile →</a></div>
                 </div>
-                <div style="margin-top: 1rem;">Owner since 2023 · Creator of FST gangster division. Directly manages clan wars and final tests.</div>
             </div>
         </div>
 
-        <!-- MEMBER LIST PANEL (UPDATED) -->
+        <!-- MEMBER LIST -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
@@ -628,56 +596,52 @@
                 <div class="member-row"><span class="member-name">Elysianayaann</span><span class="member-rank">Director</span></div>
                 <div class="member-row"><span class="member-name">Gupta_286</span><span class="member-rank">Overseer</span></div>
             </div>
-            <div style="margin-top: 1rem; font-size: 0.7rem;">Full roster updates announced weekly.</div>
         </div>
 
-        <!-- ENTRY TEST PANEL -->
+        <!-- ENTRY TEST -->
         <div id="panel-entrytest" class="content-panel">
             <div class="panel-title">ENTRY TEST</div>
-            <div class="clan-badge">
-                <strong>Entry Test Details</strong><br>
-                Complete aim trainer + movement course on Rivals map "Crossroads".<br>
-                Required: 40 kills in public match.<br>
-                Tests can be done whenever staff are available.
-            </div>
-            <div style="margin-top: 0.8rem;">✅ After passing, you become a trial member and unlock the Final Test.</div>
+            <div class="clan-badge">Complete aim trainer + movement course on "Crossroads". Required: 40 kills. Tests can be done whenever staff are available.</div>
         </div>
 
-        <!-- FINAL TEST PANEL -->
+        <!-- FINAL TEST -->
         <div id="panel-finaltest" class="content-panel">
             <div class="panel-title">FINAL TEST</div>
-            <div class="clan-badge">
-                <strong>1v1 Ranked Duel</strong><br>
-                Fight against a Commander or the Owner.<br>
-                Achieve "Elite Gangster" status + exclusive role.<br>
-                Must pass Entry Test first.
-            </div>
-            <div style="margin-top: 0.8rem;">🏆 Winners receive a permanent spot in the Hall of Fame.</div>
+            <div class="clan-badge">1v1 ranked duel vs Commander or Owner. Achieve "Elite Gangster" status.</div>
         </div>
 
-        <!-- NEWS PANEL -->
+        <!-- NEWS -->
         <div id="panel-news" class="content-panel">
             <div class="panel-title">LATEST NEWS</div>
-            <div style="background: #10152a; border-radius: 24px; padding: 1.2rem; white-space: pre-line; line-height: 1.6;">
+            <div style="background: var(--bg-code); border-radius: 24px; padding: 1.2rem;">
                 FST | Gangster Forever Stand Together<br><br>
-                Welcome to the official Rivals division of FST.<br><br>
-                This is where skill, coordination, and discipline matter most. Our focus is on competitive gameplay, strong teamwork, and dominating every match we enter.<br><br>
-                We are not just a team — we are organized, trained, and built to win.<br><br>
-                Every member is expected to improve, stay active, and represent FST with loyalty and respect.<br><br>
-                This division marks a new era for FST. Stronger mindset. Better performance. Higher standards.<br><br>
+                Welcome to the official Rivals division of FST.<br>
                 We move smart. We play to win.<br><br>
                 Gangster Forever. Stand Together.
             </div>
         </div>
 
-        <div class="footer-note">
-            FST | GANGSTER CLAN OF RIVALS · Maintained by fistygamerz<br>
-            All Roblox items and profiles belong to respective owners.
-        </div>
+        <div class="footer-note">FST | GANGSTER CLAN OF RIVALS · Maintained by fistygamerz</div>
     </main>
 </div>
 
 <script>
+    // Dark/Light Mode Toggle
+    const toggleBtn = document.getElementById('themeToggle');
+    const body = document.body;
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark');
+    }
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // Navigation
     const navItems = document.querySelectorAll('.browse-nav li');
     const panels = {
         information: document.getElementById('panel-information'),
@@ -692,26 +656,20 @@
         finaltest: document.getElementById('panel-finaltest'),
         news: document.getElementById('panel-news')
     };
-
     function activatePanel(panelId) {
-        Object.values(panels).forEach(panel => {
-            if (panel) panel.classList.remove('active-panel');
-        });
-        if (panels[panelId]) panels[panelId].classList.add('active-panel');
+        Object.values(panels).forEach(p => { if(p) p.classList.remove('active-panel'); });
+        if(panels[panelId]) panels[panelId].classList.add('active-panel');
         navItems.forEach(item => {
             item.classList.remove('active-nav');
-            const itemPanel = item.getAttribute('data-panel');
-            if (itemPanel === panelId) item.classList.add('active-nav');
+            if(item.getAttribute('data-panel') === panelId) item.classList.add('active-nav');
         });
     }
-
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             const panelId = item.getAttribute('data-panel');
-            if (panelId && panels[panelId]) activatePanel(panelId);
+            if(panelId && panels[panelId]) activatePanel(panelId);
         });
     });
-
     activatePanel('information');
 </script>
 </body>
