@@ -330,13 +330,9 @@
             text-decoration: underline;
         }
 
+        /* rank badge removed from member list - hidden */
         .member-rank {
-            font-size: 0.7rem;
-            background: #1f253f;
-            padding: 0.2rem 0.6rem;
-            border-radius: 40px;
-            display: inline-block;
-            color: #ffaa66;
+            display: none;
         }
 
         .apply-button {
@@ -375,7 +371,7 @@
         .rank-list {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.6rem;
         }
         .rank-item {
             padding: 0.5rem 0.8rem;
@@ -384,17 +380,17 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            flex-wrap: wrap;
             border: 1px solid #1f253f;
+            font-weight: bold;
         }
         .rank-icon { font-size: 1rem; min-width: 24px; text-align: center; }
-        .rank-founder { color: #ff4444; font-weight: bold; }
-        .rank-coowner { color: #ffaa44; font-weight: bold; }
-        .rank-staff { color: #ffaa44; font-weight: bold; }
-        .rank-caption { color: #ffaa44; font-weight: bold; }
-        .rank-elite { color: #ffd700; font-weight: bold; }
-        .rank-member { color: #88aaff; }
-        .rank-separator { color: #555; letter-spacing: 2px; font-size: 0.7rem; margin: 0.3rem 0; text-align: center; }
+        .rank-founder { color: #ff4444; }
+        .rank-cofounder { color: #ff8844; }
+        .rank-owner { color: #ffaa44; }
+        .rank-coowner { color: #ffcc66; }
+        .rank-elitecommander { color: #ffd700; }
+        .rank-commander { color: #88aaff; }
+        .rank-caption { color: #66ffcc; }
 
         .conduct-list {
             list-style: none;
@@ -522,7 +518,7 @@
             <li class="nav-category">CLAN</li>
             <li data-panel="allies">Allies</li>
             <li data-panel="apply">Apply</li>
-            <li data-panel="owner">Owners</li>
+            <li data-panel="owner">Founders</li>
             <li data-panel="memberlist">Member List</li>
             <li class="nav-category">TESTS</li>
             <li data-panel="entrytest">Entry Test</li>
@@ -553,7 +549,7 @@
             </div>
         </div>
 
-        <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/13/2026</div>
+        <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/14/2026</div>
 
         <!-- INFORMATION PANEL -->
         <div id="panel-information" class="content-panel active-panel">
@@ -579,24 +575,17 @@
             </div>
         </div>
 
-        <!-- RANKS PANEL - Updated: Major -> Caption -->
+        <!-- RANKS PANEL - only the 7 specified ranks -->
         <div id="panel-ranks" class="content-panel">
             <div class="panel-title">RANK STRUCTURE</div>
             <div class="rank-list">
-                <div class="rank-item"><span class="rank-icon">👑</span><span class="rank-founder">Founder</span> <span style="color:#8a98b9;">- Highest Authority</span></div>
-                <div class="rank-item"><span class="rank-icon">⭐</span><span class="rank-coowner">Co-Owner</span> <span style="color:#8a98b9;">- Senior Leadership</span></div>
-                <div class="rank-separator">─────── RANK ───────</div>
-                <div class="rank-item"><span class="rank-icon">📢</span><span class="rank-staff">Recruiter</span> <span style="color:#8a98b9;">- Recruitment Team</span></div>
-                <div class="rank-item"><span class="rank-icon">👁️</span><span class="rank-staff">Overseer</span> <span style="color:#8a98b9;">- Supervision & Enforcement</span></div>
-                <div class="rank-item"><span class="rank-icon">🎫</span><span class="rank-staff">Ticketer</span> <span style="color:#8a98b9;">- Support & Tickets</span></div>
-                <div class="rank-item"><span class="rank-icon">⚔️</span><span class="rank-caption">Caption</span> <span style="color:#8a98b9;">- Senior Officer</span></div>
-                <div class="rank-item"><span class="rank-icon">🔹</span><span class="rank-staff">Lieutenant</span> <span style="color:#8a98b9;">- Officer</span></div>
-                <div class="rank-item"><span class="rank-icon">🔸</span><span class="rank-staff">Sergeant</span> <span style="color:#8a98b9;">- Non-Commissioned Officer</span></div>
-                <div class="rank-item"><span class="rank-icon">🛡️</span><span class="rank-staff">Moderator</span> <span style="color:#8a98b9;">- Chat & Server Mod</span></div>
-                <div class="rank-separator">─────── LINE ───────</div>
-                <div class="rank-item"><span class="rank-icon">💎</span><span class="rank-elite">Elite Member</span> <span style="color:#8a98b9;">- Proven & Trusted</span></div>
-                <div class="rank-separator">─────── STATUS ───────</div>
-                <div class="rank-item"><span class="rank-icon">🟢</span><span class="rank-member">Member</span> <span style="color:#8a98b9;">- Active Clan Member</span></div>
+                <div class="rank-item"><span class="rank-icon">👑</span><span class="rank-founder">Founder</span></div>
+                <div class="rank-item"><span class="rank-icon">⭐</span><span class="rank-cofounder">Co founder</span></div>
+                <div class="rank-item"><span class="rank-icon">🏆</span><span class="rank-owner">Owner</span></div>
+                <div class="rank-item"><span class="rank-icon">⚜️</span><span class="rank-coowner">Co Owner</span></div>
+                <div class="rank-item"><span class="rank-icon">🔥</span><span class="rank-elitecommander">Elite Commander</span></div>
+                <div class="rank-item"><span class="rank-icon">⚔️</span><span class="rank-commander">Commander</span></div>
+                <div class="rank-item"><span class="rank-icon">🎖️</span><span class="rank-caption">Caption</span></div>
             </div>
         </div>
 
@@ -621,9 +610,9 @@
             <div class="faq-item"><div class="faq-question">How do I join FST?</div><div class="faq-answer">Click "Apply" in the sidebar.</div></div>
             <div class="faq-item"><div class="faq-question">Requirements?</div><div class="faq-answer">50+ wins, mic, loyalty.</div></div>
             <div class="faq-item"><div class="faq-question">How to rank up?</div><div class="faq-answer">Be active, join wars, help recruit.</div></div>
-            <div class="faq-item"><div class="faq-question">Going inactive?</div><div class="faq-answer">Tell a Co-Owner or Overseer.</div></div>
+            <div class="faq-item"><div class="faq-question">Going inactive?</div><div class="faq-answer">Tell a Co Owner or Owner.</div></div>
             <div class="faq-item"><div class="faq-question">Breaking rules?</div><div class="faq-answer">Warning → Suspension → Demotion → Ban.</div></div>
-            <div class="faq-item"><div class="faq-question">How to report someone?</div><div class="faq-answer">DM a Moderator or open a ticket.</div></div>
+            <div class="faq-item"><div class="faq-question">How to report someone?</div><div class="faq-answer">DM a Commander or higher.</div></div>
         </div>
 
         <!-- ALLIES (SPG merged) -->
@@ -643,7 +632,7 @@
             </div>
         </div>
 
-        <!-- OWNERS PANEL (three Founders) -->
+        <!-- OWNERS PANEL (Founders) - rank badge visible -->
         <div id="panel-owner" class="content-panel">
             <div class="panel-title">CLAN FOUNDERS</div>
             <div style="display:flex; flex-direction:column; gap:1rem;">
@@ -653,36 +642,36 @@
             </div>
         </div>
 
-        <!-- MEMBER LIST (full roster) with yoyoayoAynusgaming as Co-Owner and ranks updated -->
+        <!-- MEMBER LIST - ALL MEMBERS, NO RANK BADGES -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
                 <!-- Founders -->
-                <div class="member-card"><div class="member-avatar">F</div><div class="member-info"><div class="member-name">fistygamerz</div><div class="member-username"><a href="https://www.roblox.com/users/4221202613/profile" target="_blank">@fistygamerz</a></div><div class="member-rank">Founder</div></div></div>
-                <div class="member-card"><div class="member-avatar">B</div><div class="member-info"><div class="member-name">BeastBoys918</div><div class="member-username"><a href="https://www.roblox.com/users/5088373156/profile" target="_blank">@BeastBoys918</a></div><div class="member-rank">Founder</div></div></div>
-                <div class="member-card"><div class="member-avatar">A</div><div class="member-info"><div class="member-name">Aaz_Hazar</div><div class="member-username"><a href="https://www.roblox.com/users/7124274022/profile" target="_blank">@Aaz_Hazar</a></div><div class="member-rank">Founder</div></div></div>
-                <!-- Co-Owners -->
-                <div class="member-card"><div class="member-avatar">R</div><div class="member-info"><div class="member-name">RexPlyz2020</div><div class="member-username">@RexPlyz2020</div><div class="member-rank">Co-Owner</div></div></div>
-                <div class="member-card"><div class="member-avatar">Y</div><div class="member-info"><div class="member-name">yoyoayoAynusgaming</div><div class="member-username"><a href="https://www.roblox.com/users/2781642295/profile" target="_blank">@yoyoayoAynusgaming</a></div><div class="member-rank">Co-Owner</div></div></div>
-                <!-- Caption (previously Major) -->
-                <div class="member-card"><div class="member-avatar">N</div><div class="member-info"><div class="member-name">Ninj_121</div><div class="member-username"><a href="https://www.roblox.com/users/4802237225/profile" target="_blank">@Ninj_121</a></div><div class="member-rank">Caption</div></div></div>
-                <div class="member-card"><div class="member-avatar">E</div><div class="member-info"><div class="member-name">Esus2141</div><div class="member-username"><a href="https://www.roblox.com/users/9835627366/profile" target="_blank">@Esus2141</a></div><div class="member-rank">Caption</div></div></div>
-                <div class="member-card"><div class="member-avatar">S</div><div class="member-info"><div class="member-name">SoulWalker9</div><div class="member-username"><a href="https://www.roblox.com/users/7212579553/profile" target="_blank">@SoulWalker9</a></div><div class="member-rank">Caption</div></div></div>
-                <!-- Other ranks -->
-                <div class="member-card"><div class="member-avatar">G</div><div class="member-info"><div class="member-name">Gupta_286</div><div class="member-username"><a href="https://www.roblox.com/users/7413172881/profile" target="_blank">@Gupta_286</a></div><div class="member-rank">Overseer</div></div></div>
-                <div class="member-card"><div class="member-avatar">M</div><div class="member-info"><div class="member-name">mayend129</div><div class="member-username"><a href="https://www.roblox.com/users/4226766477/profile" target="_blank">@mayend129</a></div><div class="member-rank">Overseer</div></div></div>
-                <div class="member-card"><div class="member-avatar">S</div><div class="member-info"><div class="member-name">siddu745</div><div class="member-username"><a href="https://www.roblox.com/users/5214357032/profile" target="_blank">@siddu745</a></div><div class="member-rank">Sergeant</div></div></div>
-                <!-- Regular members from SPG merge and others -->
-                <div class="member-card"><div class="member-avatar">P</div><div class="member-info"><div class="member-name">PRX9akshat</div><div class="member-username">@PRX9akshat</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">A</div><div class="member-info"><div class="member-name">ansh_is3friend7thuug</div><div class="member-username">@ansh_is3friend7thuug</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">H</div><div class="member-info"><div class="member-name">Hellohiy7</div><div class="member-username">@Hellohiy7</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">A</div><div class="member-info"><div class="member-name">AmsterdamNavy</div><div class="member-username">@AmsterdamNavy</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">J</div><div class="member-info"><div class="member-name">Joeyliketoplay6</div><div class="member-username">@Joeyliketoplay6</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">R</div><div class="member-info"><div class="member-name">rodofododofg</div><div class="member-username">@rodofododofg</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">F</div><div class="member-info"><div class="member-name">FridayLover7777</div><div class="member-username">@FridayLover7777</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">S</div><div class="member-info"><div class="member-name">subtodrifty_rivals</div><div class="member-username">@subtodrifty_rivals</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">Y</div><div class="member-info"><div class="member-name">YoNoahBlox</div><div class="member-username">@YoNoahBlox</div><div class="member-rank">Member</div></div></div>
-                <div class="member-card"><div class="member-avatar">I</div><div class="member-info"><div class="member-name">IAteAChimken</div><div class="member-username">@IAteAChimken</div><div class="member-rank">Member</div></div></div>
+                <div class="member-card"><div class="member-avatar">F</div><div class="member-info"><div class="member-name">fistygamerz</div><div class="member-username"><a href="https://www.roblox.com/users/4221202613/profile" target="_blank">@fistygamerz</a></div></div></div>
+                <div class="member-card"><div class="member-avatar">B</div><div class="member-info"><div class="member-name">BeastBoys918</div><div class="member-username"><a href="https://www.roblox.com/users/5088373156/profile" target="_blank">@BeastBoys918</a></div></div></div>
+                <div class="member-card"><div class="member-avatar">A</div><div class="member-info"><div class="member-name">Aaz_Hazar</div><div class="member-username"><a href="https://www.roblox.com/users/7124274022/profile" target="_blank">@Aaz_Hazar</a></div></div></div>
+                <!-- Co Owners -->
+                <div class="member-card"><div class="member-avatar">R</div><div class="member-info"><div class="member-name">RexPlyz2020</div><div class="member-username">@RexPlyz2020</div></div></div>
+                <div class="member-card"><div class="member-avatar">Y</div><div class="member-info"><div class="member-name">yoyoayoAynusgaming</div><div class="member-username"><a href="https://www.roblox.com/users/2781642295/profile" target="_blank">@yoyoayoAynusgaming</a></div></div></div>
+                <div class="member-card"><div class="member-avatar">P</div><div class="member-info"><div class="member-name">PRX9akshat</div><div class="member-username">@PRX9akshat</div></div></div>
+                <!-- Elite Commanders -->
+                <div class="member-card"><div class="member-avatar">G</div><div class="member-info"><div class="member-name">Gupta_286</div><div class="member-username"><a href="https://www.roblox.com/users/7413172881/profile" target="_blank">@Gupta_286</a></div></div></div>
+                <div class="member-card"><div class="member-avatar">M</div><div class="member-info"><div class="member-name">mayend129</div><div class="member-username"><a href="https://www.roblox.com/users/4226766477/profile" target="_blank">@mayend129</a></div></div></div>
+                <!-- Commanders -->
+                <div class="member-card"><div class="member-avatar">S</div><div class="member-info"><div class="member-name">siddu745</div><div class="member-username"><a href="https://www.roblox.com/users/5214357032/profile" target="_blank">@siddu745</a></div></div></div>
+                <div class="member-card"><div class="member-avatar">A</div><div class="member-info"><div class="member-name">ansh_is3friend7thuug</div><div class="member-username">@ansh_is3friend7thuug</div></div></div>
+                <div class="member-card"><div class="member-avatar">H</div><div class="member-info"><div class="member-name">Hellohiy7</div><div class="member-username">@Hellohiy7</div></div></div>
+                <div class="member-card"><div class="member-avatar">A</div><div class="member-info"><div class="member-name">AmsterdamNavy</div><div class="member-username">@AmsterdamNavy</div></div></div>
+                <div class="member-card"><div class="member-avatar">J</div><div class="member-info"><div class="member-name">Joeyliketoplay6</div><div class="member-username">@Joeyliketoplay6</div></div></div>
+                <div class="member-card"><div class="member-avatar">R</div><div class="member-info"><div class="member-name">rodofododofg</div><div class="member-username">@rodofododofg</div></div></div>
+                <div class="member-card"><div class="member-avatar">F</div><div class="member-info"><div class="member-name">FridayLover7777</div><div class="member-username">@FridayLover7777</div></div></div>
+                <div class="member-card"><div class="member-avatar">S</div><div class="member-info"><div class="member-name">subtodrifty_rivals</div><div class="member-username">@subtodrifty_rivals</div></div></div>
+                <div class="member-card"><div class="member-avatar">Y</div><div class="member-info"><div class="member-name">YoNoahBlox</div><div class="member-username">@YoNoahBlox</div></div></div>
+                <div class="member-card"><div class="member-avatar">I</div><div class="member-info"><div class="member-name">IAteAChimken</div><div class="member-username">@IAteAChimken</div></div></div>
+                <!-- Captions -->
+                <div class="member-card"><div class="member-avatar">N</div><div class="member-info"><div class="member-name">Ninj_121</div><div class="member-username"><a href="https://www.roblox.com/users/4802237225/profile" target="_blank">@Ninj_121</a></div></div></div>
+                <div class="member-card"><div class="member-avatar">E</div><div class="member-info"><div class="member-name">Esus2141</div><div class="member-username"><a href="https://www.roblox.com/users/9835627366/profile" target="_blank">@Esus2141</a></div></div></div>
+                <div class="member-card"><div class="member-avatar">S</div><div class="member-info"><div class="member-name">SoulWalker9</div><div class="member-username"><a href="https://www.roblox.com/users/7212579553/profile" target="_blank">@SoulWalker9</a></div></div></div>
             </div>
         </div>
 
@@ -695,7 +684,7 @@
         <!-- FINAL TEST -->
         <div id="panel-finaltest" class="content-panel">
             <div class="panel-title">FINAL TEST</div>
-            <div class="clan-badge">1v1 ranked duel vs a Founder or Co-Owner. Achieve "Elite Gangster" status.</div>
+            <div class="clan-badge">1v1 ranked duel vs a Founder or Co Owner. Achieve "Elite Commander" status.</div>
         </div>
 
         <!-- NEWS with merger announcement -->
