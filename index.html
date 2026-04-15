@@ -395,7 +395,7 @@
             color: #0a0c1a;
         }
 
-        /* New rank list from the image */
+        /* Rank list from image */
         .rank-list {
             display: flex;
             flex-direction: column;
@@ -581,9 +581,9 @@
             </div>
         </div>
 
-        <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/14/2026</div>
+        <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/15/2026</div>
 
-        <!-- INFORMATION PANEL (only visitor counter remains) -->
+        <!-- INFORMATION PANEL (with visitor counter) -->
         <div id="panel-information" class="content-panel active-panel">
             <div class="stats-row">
                 <div class="stat-card">
@@ -618,7 +618,7 @@
             </div>
         </div>
 
-        <!-- RANKS PANEL - updated to match the image -->
+        <!-- RANKS PANEL (updated to your new ranks) -->
         <div id="panel-ranks" class="content-panel">
             <div class="panel-title">RANK STRUCTURE</div>
             <div class="rank-list">
@@ -688,7 +688,7 @@
             </div>
         </div>
 
-        <!-- MEMBER LIST - includes EndSlayer609 -->
+        <!-- MEMBER LIST (full roster) -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
@@ -729,16 +729,11 @@
             <div class="clan-badge">1v1 ranked duel vs a Founder or Co Owner. Achieve "Elite Commander" status.</div>
         </div>
 
-        <!-- NEWS -->
+        <!-- NEWS PANEL (auto-loads from news.json) -->
         <div id="panel-news" class="content-panel">
             <div class="panel-title">LATEST NEWS</div>
-            <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
-                <strong>🔔 CLAN MERGER ANNOUNCEMENT</strong><br><br>
-                We are proud to announce that SPG Rivals Division has officially merged with FST | Gangster Clan Of Rivals.<br><br>
-                Both clans have joined forces to become stronger, more competitive, and united under one banner.<br><br>
-                All SPG members are now welcomed into FST with open arms. Together, we will dominate the Rivals leaderboards and build an even greater community.<br><br>
-                Welcome to the family, SPG.<br><br>
-                — FST Leadership
+            <div id="newsContent" style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
+                Loading latest announcement...
             </div>
         </div>
 
@@ -749,24 +744,32 @@
 <button class="back-to-top" id="backToTopBtn">↑</button>
 
 <script>
-    // ----- Visitor Counter (only) -----
-    const counterKey = 'fst_clan_wiki_visits';
-    const counterUrl = `https://api.countapi.xyz/hit/fst_clan_wiki/${counterKey}`;
-    fetch(counterUrl)
+    // Visitor counter
+    fetch('https://api.countapi.xyz/hit/fst_clan_wiki/visits')
         .then(res => res.json())
+        .then(data => { document.getElementById('visitorCount').innerText = data.value; })
+        .catch(() => { document.getElementById('visitorCount').innerText = '?'; });
+
+    // Member count (auto from member list)
+    const memberCards = document.querySelectorAll('#panel-memberlist .member-card');
+    document.getElementById('memberCount').innerText = memberCards.length;
+
+    // Load news from news.json
+    fetch('news.json')
+        .then(response => response.json())
         .then(data => {
-            document.getElementById('visitorCount').innerText = data.value;
+            const newsDiv = document.getElementById('newsContent');
+            const date = new Date(data.lastUpdated);
+            const formattedDate = date.toLocaleString();
+            newsDiv.innerHTML = `
+                <strong>📢 ${data.author}</strong><br>
+                <em>${formattedDate}</em><br><br>
+                ${data.message}
+            `;
         })
         .catch(() => {
-            document.getElementById('visitorCount').innerText = '?';
+            document.getElementById('newsContent').innerHTML = 'No announcements yet. Post one in #announcements on Discord!';
         });
-
-    // Auto-update member count
-    const memberCountElement = document.getElementById('memberCount');
-    if (memberCountElement) {
-        const memberCards = document.querySelectorAll('#panel-memberlist .member-card');
-        memberCountElement.innerText = memberCards.length;
-    }
 
     // Back to Top
     const backBtn = document.getElementById('backToTopBtn');
