@@ -395,7 +395,6 @@
             color: #0a0c1a;
         }
 
-        /* Rank list from image */
         .rank-list {
             display: flex;
             flex-direction: column;
@@ -581,9 +580,9 @@
             </div>
         </div>
 
-        <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/15/2026</div>
+        <div class="edit-meta">LAST EDITED BY <span>Fistygamerz</span> · 04/16/2026</div>
 
-        <!-- INFORMATION PANEL (with visitor counter) -->
+        <!-- INFORMATION PANEL -->
         <div id="panel-information" class="content-panel active-panel">
             <div class="stats-row">
                 <div class="stat-card">
@@ -618,7 +617,7 @@
             </div>
         </div>
 
-        <!-- RANKS PANEL (updated to your new ranks) -->
+        <!-- RANKS PANEL -->
         <div id="panel-ranks" class="content-panel">
             <div class="panel-title">RANK STRUCTURE</div>
             <div class="rank-list">
@@ -729,7 +728,7 @@
             <div class="clan-badge">1v1 ranked duel vs a Founder or Co Owner. Achieve "Elite Commander" status.</div>
         </div>
 
-        <!-- NEWS PANEL (auto-loads from news.json) -->
+        <!-- NEWS PANEL (live from news.json) -->
         <div id="panel-news" class="content-panel">
             <div class="panel-title">LATEST NEWS</div>
             <div id="newsContent" style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
@@ -750,11 +749,11 @@
         .then(data => { document.getElementById('visitorCount').innerText = data.value; })
         .catch(() => { document.getElementById('visitorCount').innerText = '?'; });
 
-    // Member count (auto from member list)
+    // Auto-update member count from the member list
     const memberCards = document.querySelectorAll('#panel-memberlist .member-card');
     document.getElementById('memberCount').innerText = memberCards.length;
 
-    // Load news from news.json
+    // Load live news from news.json
     fetch('news.json')
         .then(response => response.json())
         .then(data => {
@@ -767,7 +766,8 @@
                 ${data.message}
             `;
         })
-        .catch(() => {
+        .catch(error => {
+            console.error('Error loading news:', error);
             document.getElementById('newsContent').innerHTML = 'No announcements yet. Post one in #announcements on Discord!';
         });
 
