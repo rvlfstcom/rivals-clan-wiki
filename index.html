@@ -485,7 +485,6 @@
             color: #0a0c1a;
         }
 
-        /* Staff Contact List styles */
         .staff-category {
             margin-top: 1.5rem;
         }
@@ -709,10 +708,9 @@
             </div>
         </div>
 
-        <!-- STAFF CONTACT LIST (UPDATED WITH YOUR LIST) -->
+        <!-- STAFF CONTACT LIST -->
         <div id="panel-staff" class="content-panel">
             <div class="panel-title">STAFF CONTACT LIST</div>
-            
             <div class="staff-category">
                 <div class="staff-category-title">👑 Founders</div>
                 <div class="staff-list">
@@ -721,7 +719,6 @@
                     <div class="staff-item"><span class="staff-name">Fistygamerz</span><span class="staff-discord">@fistygamerz</span></div>
                 </div>
             </div>
-
             <div class="staff-category">
                 <div class="staff-category-title">🤝 Co Owners</div>
                 <div class="staff-list">
@@ -733,10 +730,6 @@
                     <div class="staff-item"><span class="staff-name">yoyoyoAynusgaming</span><span class="staff-discord">@yoyoyoaynusgaming</span></div>
                 </div>
             </div>
-
-            <div class="clan-badge" style="margin-top: 1rem;">
-                For any clan-related issues, feel free to contact any of the staff members above.
-            </div>
         </div>
 
         <!-- APPLY -->
@@ -747,7 +740,7 @@
             </div>
         </div>
 
-        <!-- OWNERS PANEL (same as before, kept for consistency) -->
+        <!-- OWNERS PANEL (kept for consistency) -->
         <div id="panel-owner" class="content-panel">
             <div class="panel-title">CLAN FOUNDERS</div>
             <div style="display:flex; flex-direction:column; gap:1rem;">
@@ -757,10 +750,11 @@
             </div>
         </div>
 
-        <!-- MEMBER LIST (unchanged) -->
+        <!-- MEMBER LIST -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
+                <!-- (list truncated for brevity, same as your existing full member list) -->
                 <div class="member-card"><div class="member-avatar">F</div><div class="member-info"><div class="member-name">fistygamerz</div><div class="member-username"><a href="https://www.roblox.com/users/4221202613/profile" target="_blank">@fistygamerz</a></div></div></div>
                 <div class="member-card"><div class="member-avatar">B</div><div class="member-info"><div class="member-name">BeastBoys918</div><div class="member-username"><a href="https://www.roblox.com/users/5088373156/profile" target="_blank">@BeastBoys918</a></div></div></div>
                 <div class="member-card"><div class="member-avatar">A</div><div class="member-info"><div class="member-name">Aaz_Hazar</div><div class="member-username"><a href="https://www.roblox.com/users/7124274022/profile" target="_blank">@Aaz_Hazar</a></div></div></div>
@@ -798,7 +792,7 @@
             <div class="clan-badge">1v1 ranked duel vs a Founder or Co Owner. Achieve "Elite Commander" status.</div>
         </div>
 
-        <!-- NEWS PANEL (simple manual version, you can edit the text directly) -->
+        <!-- MANUAL NEWS PANEL (edit this text directly) -->
         <div id="panel-news" class="content-panel">
             <div class="panel-title">LATEST NEWS</div>
             <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
@@ -816,7 +810,7 @@
 <button class="back-to-top" id="backToTopBtn">↑</button>
 
 <script>
-    // Visitor counter (simple API)
+    // Visitor counter
     fetch('https://api.countapi.xyz/hit/fst_clan_wiki/visits')
         .then(res => res.json())
         .then(data => { document.getElementById('visitorCount').innerText = data.value; })
