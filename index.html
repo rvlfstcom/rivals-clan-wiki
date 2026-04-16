@@ -485,6 +485,44 @@
             color: #0a0c1a;
         }
 
+        /* Staff Contact List styles */
+        .staff-category {
+            margin-top: 1.5rem;
+        }
+        .staff-category:first-of-type {
+            margin-top: 0;
+        }
+        .staff-category-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffaa44;
+            border-bottom: 1px solid #ff7e05;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.8rem;
+        }
+        .staff-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .staff-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #0b0f1a;
+            padding: 0.5rem 0.8rem;
+            border-radius: 12px;
+            border: 1px solid #1f253f;
+        }
+        .staff-name {
+            font-weight: 600;
+        }
+        .staff-discord {
+            font-size: 0.8rem;
+            color: #ffaa66;
+            font-family: monospace;
+        }
+
         .footer-note {
             margin-top: 2rem;
             text-align: center;
@@ -533,6 +571,7 @@
             .member-avatar { width: 36px; height: 36px; }
             .back-to-top { bottom: 1rem; right: 1rem; width: 38px; height: 38px; font-size: 1.1rem; }
             .stats-row { flex-direction: column; }
+            .staff-item { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
         }
     </style>
 </head>
@@ -548,6 +587,7 @@
             <li data-panel="faq">FAQ</li>
             <li class="nav-category">CLAN</li>
             <li data-panel="allies">Allies</li>
+            <li data-panel="staff">Staff Contacts</li>
             <li data-panel="apply">Apply</li>
             <li data-panel="owner">Founders</li>
             <li data-panel="memberlist">Member List</li>
@@ -669,6 +709,36 @@
             </div>
         </div>
 
+        <!-- STAFF CONTACT LIST (UPDATED WITH YOUR LIST) -->
+        <div id="panel-staff" class="content-panel">
+            <div class="panel-title">STAFF CONTACT LIST</div>
+            
+            <div class="staff-category">
+                <div class="staff-category-title">👑 Founders</div>
+                <div class="staff-list">
+                    <div class="staff-item"><span class="staff-name">BeastBoys918</span><span class="staff-discord">@beastboys918</span></div>
+                    <div class="staff-item"><span class="staff-name">Aaz</span><span class="staff-discord">@aaz_hazar</span></div>
+                    <div class="staff-item"><span class="staff-name">Fistygamerz</span><span class="staff-discord">@fistygamerz</span></div>
+                </div>
+            </div>
+
+            <div class="staff-category">
+                <div class="staff-category-title">🤝 Co Owners</div>
+                <div class="staff-list">
+                    <div class="staff-item"><span class="staff-name">PRX9akshat</span><span class="staff-discord">@prx9akshat</span></div>
+                    <div class="staff-item"><span class="staff-name">Amrish9843</span><span class="staff-discord">@amrish9843</span></div>
+                    <div class="staff-item"><span class="staff-name">Ninj_121</span><span class="staff-discord">@ninj_121</span></div>
+                    <div class="staff-item"><span class="staff-name">KingOfGodGilla6</span><span class="staff-discord">@kingofgodgilla6</span></div>
+                    <div class="staff-item"><span class="staff-name">Elysianayaann</span><span class="staff-discord">@elysianayaann</span></div>
+                    <div class="staff-item"><span class="staff-name">yoyoyoAynusgaming</span><span class="staff-discord">@yoyoyoaynusgaming</span></div>
+                </div>
+            </div>
+
+            <div class="clan-badge" style="margin-top: 1rem;">
+                For any clan-related issues, feel free to contact any of the staff members above.
+            </div>
+        </div>
+
         <!-- APPLY -->
         <div id="panel-apply" class="content-panel">
             <div class="panel-title">APPLY TO JOIN FST</div>
@@ -677,7 +747,7 @@
             </div>
         </div>
 
-        <!-- OWNERS PANEL -->
+        <!-- OWNERS PANEL (same as before, kept for consistency) -->
         <div id="panel-owner" class="content-panel">
             <div class="panel-title">CLAN FOUNDERS</div>
             <div style="display:flex; flex-direction:column; gap:1rem;">
@@ -687,7 +757,7 @@
             </div>
         </div>
 
-        <!-- MEMBER LIST (full roster) -->
+        <!-- MEMBER LIST (unchanged) -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
@@ -728,11 +798,14 @@
             <div class="clan-badge">1v1 ranked duel vs a Founder or Co Owner. Achieve "Elite Commander" status.</div>
         </div>
 
-        <!-- NEWS PANEL (live from news.json) -->
+        <!-- NEWS PANEL (simple manual version, you can edit the text directly) -->
         <div id="panel-news" class="content-panel">
             <div class="panel-title">LATEST NEWS</div>
-            <div id="newsContent" style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
-                Loading latest announcement...
+            <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
+                <strong>📢 FST & SPG Merger Complete</strong><br>
+                <em>April 16, 2026</em><br><br>
+                SPG Rivals Division has officially merged into FST. Welcome to all former SPG members!<br><br>
+                Check #announcements on Discord for more details.
             </div>
         </div>
 
@@ -743,33 +816,15 @@
 <button class="back-to-top" id="backToTopBtn">↑</button>
 
 <script>
-    // Visitor counter
+    // Visitor counter (simple API)
     fetch('https://api.countapi.xyz/hit/fst_clan_wiki/visits')
         .then(res => res.json())
         .then(data => { document.getElementById('visitorCount').innerText = data.value; })
         .catch(() => { document.getElementById('visitorCount').innerText = '?'; });
 
-    // Auto-update member count from the member list
+    // Member count from member list
     const memberCards = document.querySelectorAll('#panel-memberlist .member-card');
     document.getElementById('memberCount').innerText = memberCards.length;
-
-    // Load live news from news.json
-    fetch('news.json')
-        .then(response => response.json())
-        .then(data => {
-            const newsDiv = document.getElementById('newsContent');
-            const date = new Date(data.lastUpdated);
-            const formattedDate = date.toLocaleString();
-            newsDiv.innerHTML = `
-                <strong>📢 ${data.author}</strong><br>
-                <em>${formattedDate}</em><br><br>
-                ${data.message}
-            `;
-        })
-        .catch(error => {
-            console.error('Error loading news:', error);
-            document.getElementById('newsContent').innerHTML = 'No announcements yet. Post one in #announcements on Discord!';
-        });
 
     // Back to Top
     const backBtn = document.getElementById('backToTopBtn');
@@ -803,6 +858,7 @@
         conduct: document.getElementById('panel-conduct'),
         faq: document.getElementById('panel-faq'),
         allies: document.getElementById('panel-allies'),
+        staff: document.getElementById('panel-staff'),
         apply: document.getElementById('panel-apply'),
         owner: document.getElementById('panel-owner'),
         memberlist: document.getElementById('panel-memberlist'),
