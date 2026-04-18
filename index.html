@@ -373,6 +373,24 @@
             margin-top: 1rem;
         }
 
+        .support-button {
+            background: #1a1f32;
+            color: #ffb26e;
+            border: 1px solid #2a314b;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: 0.2s;
+        }
+        .support-button:hover {
+            background: #ff7e05;
+            color: #0a0c1a;
+            border-color: #ff7e05;
+        }
+
         .social-links {
             display: flex;
             gap: 1rem;
@@ -394,33 +412,6 @@
             background: #ff7e05;
             color: #0a0c1a;
         }
-
-        .rank-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-        .rank-item {
-            padding: 0.5rem 0.8rem;
-            border-radius: 12px;
-            background: #0b0f1a;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid #1f253f;
-            font-weight: bold;
-        }
-        .rank-icon { font-size: 1rem; min-width: 24px; text-align: center; }
-        .rank-founder { color: #ff4444; }
-        .rank-cofounder { color: #ff8844; }
-        .rank-owner { color: #ffaa44; }
-        .rank-coowner { color: #ffcc66; }
-        .rank-boss { color: #ff66cc; }
-        .rank-vizeboss { color: #ff66aa; }
-        .rank-elitecommander { color: #ffd700; }
-        .rank-commander { color: #88aaff; }
-        .rank-caption { color: #66ffcc; }
-        .rank-moderator { color: #aaaaff; }
 
         .conduct-list {
             list-style: none;
@@ -483,43 +474,6 @@
         .ally-link:hover {
             background: #ff7e05;
             color: #0a0c1a;
-        }
-
-        .staff-category {
-            margin-top: 1.5rem;
-        }
-        .staff-category:first-of-type {
-            margin-top: 0;
-        }
-        .staff-category-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ffaa44;
-            border-bottom: 1px solid #ff7e05;
-            padding-bottom: 0.3rem;
-            margin-bottom: 0.8rem;
-        }
-        .staff-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .staff-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #0b0f1a;
-            padding: 0.5rem 0.8rem;
-            border-radius: 12px;
-            border: 1px solid #1f253f;
-        }
-        .staff-name {
-            font-weight: 600;
-        }
-        .staff-discord {
-            font-size: 0.8rem;
-            color: #ffaa66;
-            font-family: monospace;
         }
 
         .strike-table {
@@ -586,7 +540,6 @@
             .back-to-top { bottom: 1rem; right: 1rem; width: 38px; height: 38px; font-size: 1.1rem; }
             .stats-row { flex-direction: column; }
             .strike-table { font-size: 0.7rem; }
-            .staff-item { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
         }
     </style>
 </head>
@@ -597,13 +550,12 @@
         <ul class="browse-nav">
             <li class="nav-category">MAIN</li>
             <li data-panel="information">Information</li>
-            <li data-panel="ranks">Ranks</li>
             <li data-panel="conduct">Code of Conduct</li>
             <li data-panel="faq">FAQ</li>
             <li class="nav-category">CLAN</li>
             <li data-panel="allies">Allies</li>
-            <li data-panel="staff">Staff Contacts</li>
             <li data-panel="apply">Apply</li>
+            <li data-panel="support">Support Ticket</li>
             <li data-panel="owner">Founders</li>
             <li data-panel="memberlist">Member List</li>
             <li class="nav-category">SYSTEMS</li>
@@ -638,7 +590,7 @@
             </div>
         </div>
 
-        <div class="edit-meta">LAST EDITED BY <span>fistygamerz</span> · 04/17/2026</div>
+        <div class="edit-meta">LAST EDITED BY <span>fistygamerz</span> · 04/18/2026</div>
 
         <!-- INFORMATION PANEL -->
         <div id="panel-information" class="content-panel active-panel">
@@ -672,23 +624,6 @@
             <div class="social-links">
                 <a href="https://discord.gg/dKPff6gdsK" target="_blank" class="social-link">💬 Join our Discord</a>
                 <a href="https://www.roblox.com/communities/32380100/Legion-Community-Server#!/about" target="_blank" class="social-link">🎮 Roblox Group</a>
-            </div>
-        </div>
-
-        <!-- RANKS PANEL -->
-        <div id="panel-ranks" class="content-panel">
-            <div class="panel-title">RANK STRUCTURE</div>
-            <div class="rank-list">
-                <div class="rank-item"><span class="rank-icon">👑</span><span class="rank-founder">Founder</span></div>
-                <div class="rank-item"><span class="rank-icon">⭐</span><span class="rank-cofounder">Co founder</span></div>
-                <div class="rank-item"><span class="rank-icon">🏆</span><span class="rank-owner">Owner</span></div>
-                <div class="rank-item"><span class="rank-icon">⚜️</span><span class="rank-coowner">Co Owner</span></div>
-                <div class="rank-item"><span class="rank-icon">💼</span><span class="rank-boss">Boss</span></div>
-                <div class="rank-item"><span class="rank-icon">📋</span><span class="rank-vizeboss">Vize Boss</span></div>
-                <div class="rank-item"><span class="rank-icon">🔥</span><span class="rank-elitecommander">Elite Commander</span></div>
-                <div class="rank-item"><span class="rank-icon">⚔️</span><span class="rank-commander">Commander</span></div>
-                <div class="rank-item"><span class="rank-icon">🎖️</span><span class="rank-caption">Caption</span></div>
-                <div class="rank-item"><span class="rank-icon">🛡️</span><span class="rank-moderator">Moderator</span></div>
             </div>
         </div>
 
@@ -727,35 +662,21 @@
             </div>
         </div>
 
-        <!-- STAFF CONTACTS -->
-        <div id="panel-staff" class="content-panel">
-            <div class="panel-title">STAFF CONTACT LIST</div>
-            <div class="staff-category">
-                <div class="staff-category-title">👑 Founders</div>
-                <div class="staff-list">
-                    <div class="staff-item"><span class="staff-name">BeastBoys918</span><span class="staff-discord">@beastboys918</span></div>
-                    <div class="staff-item"><span class="staff-name">Aaz</span><span class="staff-discord">@aaz_hazar</span></div>
-                    <div class="staff-item"><span class="staff-name">fistygamerz</span><span class="staff-discord">@fistygamerz</span></div>
-                </div>
-            </div>
-            <div class="staff-category">
-                <div class="staff-category-title">🤝 Co Owners</div>
-                <div class="staff-list">
-                    <div class="staff-item"><span class="staff-name">PRX9akshat</span><span class="staff-discord">@prx9akshat</span></div>
-                    <div class="staff-item"><span class="staff-name">Amrish9843</span><span class="staff-discord">@amrish9843</span></div>
-                    <div class="staff-item"><span class="staff-name">Ninj_121</span><span class="staff-discord">@ninj_121</span></div>
-                    <div class="staff-item"><span class="staff-name">KingOfGodGilla6</span><span class="staff-discord">@kingofgodgilla6</span></div>
-                    <div class="staff-item"><span class="staff-name">Elysianayaann</span><span class="staff-discord">@elysianayaann</span></div>
-                    <div class="staff-item"><span class="staff-name">yoyoyoAynusgaming</span><span class="staff-discord">@yoyoyoaynusgaming</span></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- APPLY -->
+        <!-- APPLY PANEL (updated channel link) -->
         <div id="panel-apply" class="content-panel">
             <div class="panel-title">APPLY TO JOIN HH</div>
             <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
-                <a href="https://discord.com/channels/1478711010092388392/1478711011505868843" target="_blank" class="apply-button">APPLY NOW →</a>
+                <a href="https://discord.com/channels/1478711010092388392/1491058033520804025" target="_blank" class="apply-button">APPLY NOW →</a>
+            </div>
+        </div>
+
+        <!-- SUPPORT TICKET PANEL -->
+        <div id="panel-support" class="content-panel">
+            <div class="panel-title">SUPPORT TICKET</div>
+            <div class="clan-badge">
+                <p>Click the button below to create a support ticket. A staff member will respond as soon as possible.</p>
+                <p>Describe your issue clearly when the ticket opens.</p>
+                <a href="https://discord.com/channels/1478711010092388392/1494962347410849873" target="_blank" class="support-button">SUPPORT CHANNEL →</a>
             </div>
         </div>
 
@@ -769,7 +690,7 @@
             </div>
         </div>
 
-        <!-- MEMBER LIST (unchanged content, just updated title) -->
+        <!-- MEMBER LIST -->
         <div id="panel-memberlist" class="content-panel">
             <div class="panel-title">MEMBER LIST · ELITE ROSTER</div>
             <div class="member-list-container">
@@ -855,7 +776,7 @@
             <div class="panel-title">LATEST NEWS</div>
             <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
                 <strong>📢 Welcome to HH | Head Hunters</strong><br>
-                <em>April 17, 2026</em><br><br>
+                <em>April 18, 2026</em><br><br>
                 We have officially rebranded from FST to HH | Head Hunters. New name, same elite team.<br><br>
                 Check #announcements on Discord for more details.
             </div>
@@ -868,7 +789,7 @@
 <button class="back-to-top" id="backToTopBtn">↑</button>
 
 <script>
-    // Visitor counter
+    // Visitor counter (new key for HH)
     fetch('https://api.countapi.xyz/hit/hh_clan_wiki/visits')
         .then(res => res.json())
         .then(data => { document.getElementById('visitorCount').innerText = data.value; })
@@ -906,12 +827,11 @@
     const navItems = document.querySelectorAll('.browse-nav li[data-panel]');
     const panels = {
         information: document.getElementById('panel-information'),
-        ranks: document.getElementById('panel-ranks'),
         conduct: document.getElementById('panel-conduct'),
         faq: document.getElementById('panel-faq'),
         allies: document.getElementById('panel-allies'),
-        staff: document.getElementById('panel-staff'),
         apply: document.getElementById('panel-apply'),
+        support: document.getElementById('panel-support'),
         owner: document.getElementById('panel-owner'),
         memberlist: document.getElementById('panel-memberlist'),
         strike: document.getElementById('panel-strike'),
