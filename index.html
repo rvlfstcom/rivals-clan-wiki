@@ -41,15 +41,26 @@
         }
 
         .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #ff7e05;
+            padding-left: 1rem;
+        }
+        .sidebar-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .sidebar-title {
             font-size: 1.5rem;
             font-weight: 700;
             background: linear-gradient(135deg, #ffb347, #ff7e05);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #ff7e05;
-            padding-left: 1rem;
         }
 
         .browse-nav {
@@ -199,6 +210,19 @@
         .owner-info .tag {
             font-size: 0.65rem;
             color: #8a98b9;
+        }
+
+        .banner-container {
+            width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .edit-meta {
@@ -540,13 +564,17 @@
             .back-to-top { bottom: 1rem; right: 1rem; width: 38px; height: 38px; font-size: 1.1rem; }
             .stats-row { flex-direction: column; }
             .strike-table { font-size: 0.7rem; }
+            .sidebar-header { flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
 <div class="wiki-container">
     <aside class="wiki-sidebar">
-        <div class="sidebar-header">HH WIKI</div>
+        <div class="sidebar-header">
+            <img class="sidebar-logo" src="https://files.catbox.moe/kxj49g.png" alt="HH Logo">
+            <span class="sidebar-title">HH WIKI</span>
+        </div>
         <ul class="browse-nav">
             <li class="nav-category">MAIN</li>
             <li data-panel="information">Information</li>
@@ -590,7 +618,12 @@
             </div>
         </div>
 
-        <div class="edit-meta">LAST EDITED BY <span>fistygamerz</span> · 04/18/2026</div>
+        <!-- Banner -->
+        <div class="banner-container">
+            <img src="https://files.catbox.moe/fp35ee.webp" alt="HH Banner">
+        </div>
+
+        <div class="edit-meta">LAST EDITED BY <span>fistygamerz</span> · 04/19/2026</div>
 
         <!-- INFORMATION PANEL -->
         <div id="panel-information" class="content-panel active-panel">
@@ -662,7 +695,7 @@
             </div>
         </div>
 
-        <!-- APPLY PANEL (updated channel link) -->
+        <!-- APPLY PANEL -->
         <div id="panel-apply" class="content-panel">
             <div class="panel-title">APPLY TO JOIN HH</div>
             <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
@@ -744,58 +777,20 @@
                         <tr><th>Member</th><th>Strikes</th><th>Reason</th><th>Date</th><th>Issued By</th></tr>
                     </thead>
                     <tbody>
-                        <tr><td colspan="5" style="text-align:center;">No active strikes. All members are in good standing.</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- TRYOUT INFO -->
-        <div id="panel-tryout" class="content-panel">
-            <div class="panel-title">TRYOUT INFORMATION</div>
-            <div class="clan-badge">
-                <div style="display:inline-block; padding:0.2rem 1rem; border-radius:40px; background:#9e2d2d; color:white; margin-bottom:0.5rem;">🔴 TRYOUTS: CLOSED</div>
-                <p><strong>Current Status:</strong> No tryouts are scheduled at this time.</p>
-                <p>When tryouts are open, join the "Tryout Voice" channel and wait for a staff member.</p>
-                <p>Requirements: 50+ Rivals wins, working microphone, respect.</p>
-            </div>
-        </div>
-
-        <!-- ENTRY TEST & FINAL TEST -->
-        <div id="panel-entrytest" class="content-panel">
-            <div class="panel-title">ENTRY TEST</div>
-            <div class="clan-badge">Complete aim trainer + movement course on "Crossroads". Required: 40 kills. Tests can be done whenever staff are available.</div>
-        </div>
-        <div id="panel-finaltest" class="content-panel">
-            <div class="panel-title">FINAL TEST</div>
-            <div class="clan-badge">1v1 ranked duel vs a Founder or Co Owner. Achieve "Elite Commander" status.</div>
-        </div>
-
-        <!-- MANUAL NEWS PANEL -->
-        <div id="panel-news" class="content-panel">
-            <div class="panel-title">LATEST NEWS</div>
-            <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
-                <strong>📢 Welcome to HH | Head Hunters</strong><br>
-                <em>April 18, 2026</em><br><br>
-                We have officially rebranded from FST to HH | Head Hunters. New name, same elite team.<br><br>
-                Check #announcements on Discord for more details.
-            </div>
-        </div>
-
-        <div class="footer-note">HH | HEAD HUNTERS · Maintained by fistygamerz</div>
+                        <tr><td colspan="5" style="text-align:center;">No active strikes. All members are in good standing.</div>
     </main>
 </div>
 
 <button class="back-to-top" id="backToTopBtn">↑</button>
 
 <script>
-    // Visitor counter (new key for HH)
+    // Visitor counter
     fetch('https://api.countapi.xyz/hit/hh_clan_wiki/visits')
         .then(res => res.json())
         .then(data => { document.getElementById('visitorCount').innerText = data.value; })
         .catch(() => { document.getElementById('visitorCount').innerText = '?'; });
 
-    // Member count from member list
+    // Member count
     const memberCards = document.querySelectorAll('#panel-memberlist .member-card');
     document.getElementById('memberCount').innerText = memberCards.length;
 
