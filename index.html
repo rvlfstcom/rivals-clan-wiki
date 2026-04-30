@@ -510,7 +510,6 @@
       display: none;
     }
 
-    /* Custom styles for the appeal form */
     .appeal-form-group {
       margin-bottom: 1rem;
     }
@@ -867,7 +866,7 @@
         </div>
       </div>
 
-      <!-- STRIKE SYSTEM PANEL -->
+      <!-- STRIKE SYSTEM PANEL (UPDATED LOG) -->
       <div id="panel-strike" class="content-panel">
         <div class="panel-title">STRIKE SYSTEM</div>
         <div class="clan-badge">
@@ -897,14 +896,18 @@
             </thead>
             <tbody>
               <tr>
-                <td colspan="5" style="text-align:center;">No active strikes. All members are in good standing.</td>
+                <td>AmazingDude</td>
+                <td>1</td>
+                <td>Not Following Rules</td>
+                <td>05/01/2026</td>
+                <td>@fistygamerzz</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- STRIKE APPEAL PANEL (NEW) -->
+      <!-- STRIKE APPEAL PANEL -->
       <div id="panel-appeal" class="content-panel">
         <div class="panel-title">STRIKE APPEAL</div>
         <div class="clan-badge">
@@ -1102,11 +1105,9 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Reset previous message
       messageDiv.style.display = 'none';
       messageDiv.innerHTML = '';
 
-      // Check cooldown
       if (isCooldownActive()) {
         const remaining = getRemainingCooldownHours();
         messageDiv.innerHTML = `<strong>Cooldown active</strong><br>You can only submit one appeal every 24 hours. Please try again in ${remaining} hours.`;
@@ -1114,7 +1115,6 @@
         return;
       }
 
-      // Collect form data
       const discordUser = document.getElementById('discordUser').value.trim();
       const robloxUser = document.getElementById('robloxUser').value.trim();
       const reason = document.getElementById('appealReason').value.trim();
