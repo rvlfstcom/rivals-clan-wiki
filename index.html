@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>HH | Head Hunters</title>
   <style>
-    /* ===== STYLES (identical to previous working version) ===== */
     * {
       margin: 0;
       padding: 0;
@@ -276,6 +275,40 @@
       line-height: 1.2;
     }
 
+    /* About Us Section */
+    .about-us {
+      background: #0b0f1a;
+      border-radius: 16px;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 3px solid #ff9f4a;
+    }
+
+    .about-us p {
+      margin-bottom: 0.8rem;
+    }
+
+    .external-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid #1f253f;
+    }
+
+    .external-links a {
+      color: #ffb26e;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .external-links a:hover {
+      color: #ffaa66;
+      text-decoration: underline;
+    }
+
     .content-panel {
       background: #0f1322;
       border-radius: 24px;
@@ -518,75 +551,6 @@
       display: none;
     }
 
-    .appeal-form-group {
-      margin-bottom: 1rem;
-    }
-
-    .appeal-form-group label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-      color: #ffaa44;
-    }
-
-    .appeal-form-group input,
-    .appeal-form-group textarea {
-      width: 100%;
-      padding: 0.5rem;
-      background: #0b0f1a;
-      border: 1px solid #1f253f;
-      border-radius: 12px;
-      color: #eef2ff;
-      font-family: inherit;
-    }
-
-    .appeal-form-group input:focus,
-    .appeal-form-group textarea:focus {
-      outline: none;
-      border-color: #ff7e05;
-    }
-
-    .appeal-submit-btn {
-      background: #ff7e05;
-      color: #0a0c1a;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .appeal-submit-btn:hover {
-      background: #e06e00;
-    }
-
-    .appeal-message {
-      margin-top: 1rem;
-      padding: 0.5rem;
-      border-radius: 12px;
-      background: #0b0f1a;
-      border-left: 3px solid #ff7e05;
-    }
-
-    .strike-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-
-    .strike-table th,
-    .strike-table td {
-      border: 1px solid #1f253f;
-      padding: 0.5rem;
-      text-align: left;
-    }
-
-    .strike-table th {
-      background: #1a1f32;
-      color: #ffaa66;
-    }
-
     .footer-note {
       margin-top: 2rem;
       text-align: center;
@@ -663,10 +627,6 @@
       .stats-row {
         flex-direction: column;
       }
-
-      .strike-table {
-        font-size: 0.7rem;
-      }
     }
   </style>
 </head>
@@ -687,9 +647,6 @@
         <li data-panel="apply">Apply</li>
         <li data-panel="support">Support Ticket</li>
         <li data-panel="owner">Founders</li>
-        <li class="nav-category">SYSTEMS</li>
-        <li data-panel="strike">Strike System</li>
-        <li data-panel="appeal">Strike Appeal</li>
         <li class="nav-category">TESTS</li>
         <li data-panel="tryout">Tryout Info</li>
         <li data-panel="entrytest">Entry Test</li>
@@ -709,7 +666,6 @@
           <h1>HH | HEAD HUNTERS</h1>
           <p>Hunt or be hunted · Rivals Division</p>
         </div>
-        <!-- OWNER PROFILE (UPDATED with picture and correct name) -->
         <div class="owner-profile">
           <a href="https://www.roblox.com/users/4221202613/profile" target="_blank">
             <div class="owner-avatar">
@@ -723,7 +679,6 @@
         </div>
       </div>
 
-      <!-- Banner -->
       <div class="banner-container">
         <img src="https://files.catbox.moe/fp35ee.webp" alt="HH Banner">
       </div>
@@ -743,10 +698,21 @@
           </div>
         </div>
 
+        <div class="panel-title">ABOUT US</div>
+        <div class="about-us">
+          <p><strong>HH | Head Hunters</strong> is an elite, competitive Roblox Rivals clan built on discipline, coordination, and raw competitive instinct. We were founded in 2023 and rebranded to Head Hunters in 2026, embodying the motto "Hunt or be hunted".</p>
+          <p>We focus on tactical gameplay, absolute focus, and relentless improvement. This is more than a team – it's a brotherhood of hunters. We move as one, strike as one. Only the strong rise.</p>
+          <p>Our Rivals division currently holds a Top 100 Global rank, competing in 5v5 competitive matches. We run weekly clan wars, regular tryouts, and maintain a strict code of conduct to ensure a respectful, non-toxic environment.</p>
+          <div class="external-links">
+            <a href="https://www.roblox.com/communities/32380100/Legion-Community-Server" target="_blank">🎮 Roblox Group</a>
+            <a href="https://discord.gg/dKPff6gdsK" target="_blank">💬 Join our Discord</a>
+            <a href="https://discord.com/channels/1478711010092388392/1491058033520804025" target="_blank">📝 Apply to Join</a>
+          </div>
+        </div>
+
         <div class="panel-title">CLAN INFORMATION</div>
         <div class="clan-badge">
-          <strong>HH | Head Hunters</strong><br>
-          Elite hunters dominating the Rivals scene. Built on skill, strategy, and respect.
+          <strong>HH | Head Hunters</strong><br>Elite hunters dominating the Rivals scene. Built on skill, strategy, and respect.
         </div>
         <div class="info-grid">
           <div class="info-block"><strong>Founded</strong><br>2023 · Rebranded 2026</div>
@@ -783,30 +749,12 @@
       <!-- FAQ -->
       <div id="panel-faq" class="content-panel">
         <div class="panel-title">FREQUENTLY ASKED QUESTIONS</div>
-        <div class="faq-item">
-          <div class="faq-question">How do I join HH?</div>
-          <div class="faq-answer">Click "Apply" in the sidebar.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Requirements?</div>
-          <div class="faq-answer">50+ wins, mic, loyalty.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">How to rank up?</div>
-          <div class="faq-answer">Be active, join wars, help recruit.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Going inactive?</div>
-          <div class="faq-answer">Tell a Co Owner or Owner.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">Breaking rules?</div>
-          <div class="faq-answer">Warning → Suspension → Demotion → Ban.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question">How to report someone?</div>
-          <div class="faq-answer">DM a Commander or higher.</div>
-        </div>
+        <div class="faq-item"><div class="faq-question">How do I join HH?</div><div class="faq-answer">Click "Apply" in the sidebar.</div></div>
+        <div class="faq-item"><div class="faq-question">Requirements?</div><div class="faq-answer">50+ wins, mic, loyalty.</div></div>
+        <div class="faq-item"><div class="faq-question">How to rank up?</div><div class="faq-answer">Be active, join wars, help recruit.</div></div>
+        <div class="faq-item"><div class="faq-question">Going inactive?</div><div class="faq-answer">Tell a Co Owner or Owner.</div></div>
+        <div class="faq-item"><div class="faq-question">Breaking rules?</div><div class="faq-answer">Warning → Suspension → Demotion → Ban.</div></div>
+        <div class="faq-item"><div class="faq-question">How to report someone?</div><div class="faq-answer">DM a Commander or higher.</div></div>
       </div>
 
       <!-- ALLIES -->
@@ -814,9 +762,7 @@
         <div class="panel-title">ALLIES & PARTNERS</div>
         <div class="clan-badge">SPG Rivals Division has officially merged into HH. Welcome to all former SPG members!</div>
         <div class="allies-list">
-          <div class="ally-card">
-            <div class="ally-name">SPG (Merged)</div><span style="color:#88ffaa;">✓ Now part of HH</span>
-          </div>
+          <div class="ally-card"><div class="ally-name">SPG (Merged)</div><span style="color:#88ffaa;">✓ Now part of HH</span></div>
         </div>
       </div>
 
@@ -838,26 +784,20 @@
         </div>
       </div>
 
-      <!-- OWNERS PANEL (Founders) -->
+      <!-- OWNERS PANEL -->
       <div id="panel-owner" class="content-panel">
         <div class="panel-title">CLAN FOUNDERS</div>
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <!-- fistygamerz -->
           <div class="member-card">
-            <div class="member-avatar">
-              <img src="https://files.catbox.moe/nadul8.png" alt="fistygamerz">
-            </div>
+            <div class="member-avatar"><img src="https://files.catbox.moe/nadul8.png" alt="fistygamerz"></div>
             <div class="member-info">
               <div class="member-name">fistygamerz</div>
               <div class="member-username"><a href="https://www.roblox.com/users/4221202613/profile" target="_blank">@fistygamerz</a></div>
               <div class="member-rank">Founder</div>
             </div>
           </div>
-          <!-- BeastBoys918 -->
           <div class="member-card">
-            <div class="member-avatar">
-              <img src="https://files.catbox.moe/ihd16j.png" alt="BeastBoys918">
-            </div>
+            <div class="member-avatar"><img src="https://files.catbox.moe/ihd16j.png" alt="BeastBoys918"></div>
             <div class="member-info">
               <div class="member-name">BeastBoys918</div>
               <div class="member-username"><a href="https://www.roblox.com/users/5088373156/profile" target="_blank">@BeastBoys918</a></div>
@@ -865,72 +805,6 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- STRIKE SYSTEM PANEL -->
-      <div id="panel-strike" class="content-panel">
-        <div class="panel-title">STRIKE SYSTEM</div>
-        <div class="clan-badge">
-          <strong>How strikes work:</strong><br>
-          When a member breaks the Code of Conduct, a staff member issues a strike. Accumulating strikes leads to automatic punishments.
-        </div>
-        <div class="clan-badge">
-          <strong>Strike Penalties:</strong><br>
-          • 1st strike: Verbal warning<br>
-          • 2nd strike: 24-hour mute<br>
-          • 3rd strike: Demotion (1 rank down)<br>
-          • 4th strike: Kick from clan (can reapply after 7 days)<br>
-          • 5th strike: Permanent ban<br>
-          Strikes expire after 30 days of good behavior.
-        </div>
-        <div class="panel-title" style="margin-top: 1rem;">CURRENT STRIKE LOG</div>
-        <div style="overflow-x: auto;">
-          <table class="strike-table">
-            <thead>
-              <tr>
-                <th>Member</th>
-                <th>Strikes</th>
-                <th>Reason</th>
-                <th>Date</th>
-                <th>Issued By</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>AmazingDude</td>
-                <td>1</td>
-                <td>Not Following Rules</td>
-                <td>05/01/2026</td>
-                <td>@fistygamerzz</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- STRIKE APPEAL PANEL -->
-      <div id="panel-appeal" class="content-panel">
-        <div class="panel-title">STRIKE APPEAL</div>
-        <div class="clan-badge">
-          <p>If you believe a strike was issued unfairly, you can appeal using the form below. You may only submit one appeal every 24 hours.</p>
-          <p>Include your Discord username, your Roblox username, and a clear explanation of why the strike should be reviewed.</p>
-        </div>
-        <form id="appealForm">
-          <div class="appeal-form-group">
-            <label for="discordUser">Discord Username</label>
-            <input type="text" id="discordUser" name="discordUser" required placeholder="e.g., fistygamerz">
-          </div>
-          <div class="appeal-form-group">
-            <label for="robloxUser">Roblox Username</label>
-            <input type="text" id="robloxUser" name="robloxUser" required placeholder="e.g., fistygamerz">
-          </div>
-          <div class="appeal-form-group">
-            <label for="appealReason">Reason for Appeal</label>
-            <textarea id="appealReason" name="appealReason" rows="5" required placeholder="Explain why the strike should be reviewed..."></textarea>
-          </div>
-          <button type="submit" class="appeal-submit-btn">SUBMIT APPEAL</button>
-        </form>
-        <div id="appealMessage" class="appeal-message" style="display: none;"></div>
       </div>
 
       <!-- TRYOUT INFO -->
@@ -1016,8 +890,6 @@
       apply: document.getElementById('panel-apply'),
       support: document.getElementById('panel-support'),
       owner: document.getElementById('panel-owner'),
-      strike: document.getElementById('panel-strike'),
-      appeal: document.getElementById('panel-appeal'),
       tryout: document.getElementById('panel-tryout'),
       entrytest: document.getElementById('panel-entrytest'),
       finaltest: document.getElementById('panel-finaltest'),
@@ -1040,104 +912,6 @@
       });
     });
     activatePanel('information');
-
-    // --- 24‑hour cooldown and webhook submission ---
-    const form = document.getElementById('appealForm');
-    const messageDiv = document.getElementById('appealMessage');
-    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1499423295483678791/RtxX1cqFUTQB7Kb-ftNDPbd1obQCBCOP6j8AZBH0Szyp8tWd6FRzhd28oT7ieFptJrfA';
-
-    function getLastAppealTimestamp() {
-      const stored = localStorage.getItem('lastAppealTimestamp');
-      return stored ? parseInt(stored, 10) : null;
-    }
-
-    function setLastAppealTimestamp() {
-      localStorage.setItem('lastAppealTimestamp', Date.now());
-    }
-
-    function isCooldownActive() {
-      const last = getLastAppealTimestamp();
-      if (!last) return false;
-      const now = Date.now();
-      const hoursSince = (now - last) / (1000 * 60 * 60);
-      return hoursSince < 24;
-    }
-
-    function getRemainingCooldownHours() {
-      const last = getLastAppealTimestamp();
-      if (!last) return 0;
-      const now = Date.now();
-      const hoursSince = (now - last) / (1000 * 60 * 60);
-      if (hoursSince >= 24) return 0;
-      return (24 - hoursSince).toFixed(1);
-    }
-
-    async function sendToDiscord(formData) {
-      const payload = {
-        content: null,
-        embeds: [{
-          title: 'New Strike Appeal',
-          color: 0xff7e05,
-          fields: [
-            { name: 'Discord Username', value: formData.discordUser, inline: true },
-            { name: 'Roblox Username', value: formData.robloxUser, inline: true },
-            { name: 'Reason', value: formData.reason, inline: false }
-          ],
-          timestamp: new Date().toISOString()
-        }]
-      };
-      const response = await fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!response.ok) {
-        throw new Error('Failed to send appeal to Discord');
-      }
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      messageDiv.style.display = 'none';
-      messageDiv.innerHTML = '';
-
-      if (isCooldownActive()) {
-        const remaining = getRemainingCooldownHours();
-        messageDiv.innerHTML = `<strong>Cooldown active</strong><br>You can only submit one appeal every 24 hours. Please try again in ${remaining} hours.`;
-        messageDiv.style.display = 'block';
-        return;
-      }
-
-      const discordUser = document.getElementById('discordUser').value.trim();
-      const robloxUser = document.getElementById('robloxUser').value.trim();
-      const reason = document.getElementById('appealReason').value.trim();
-
-      if (!discordUser || !robloxUser || !reason) {
-        messageDiv.innerHTML = '<strong>Error</strong><br>All fields are required.';
-        messageDiv.style.display = 'block';
-        return;
-      }
-
-      const submitButton = form.querySelector('button[type="submit"]');
-      submitButton.disabled = true;
-      submitButton.textContent = 'Submitting...';
-
-      try {
-        await sendToDiscord({ discordUser, robloxUser, reason });
-        setLastAppealTimestamp();
-        messageDiv.innerHTML = '<strong>Appeal submitted</strong><br>Your appeal has been sent to the staff team. You will be contacted if a review is needed.';
-        messageDiv.style.display = 'block';
-        form.reset();
-      } catch (error) {
-        console.error('Appeal submission error:', error);
-        messageDiv.innerHTML = '<strong>Submission failed</strong><br>There was a technical issue. Please try again later or contact a staff member directly.';
-        messageDiv.style.display = 'block';
-      } finally {
-        submitButton.disabled = false;
-        submitButton.textContent = 'SUBMIT APPEAL';
-      }
-    });
   </script>
 </body>
 </html>
