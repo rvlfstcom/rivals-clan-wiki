@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>HH | Head Hunters</title>
   <style>
+    /* ===== STYLES (identical to previous working version) ===== */
     * {
       margin: 0;
       padding: 0;
@@ -195,14 +196,15 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ff7e05, #ffb347);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
+      background: #1a1f32;
+      overflow: hidden;
       border: 2px solid #ff9f4a;
+    }
+
+    .owner-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .owner-info .name {
@@ -480,6 +482,12 @@
       text-transform: uppercase;
     }
 
+    .member-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .member-info {
       flex: 1;
     }
@@ -690,8 +698,7 @@
         <li data-panel="news">News</li>
       </ul>
       <div class="theme-toggle" id="themeToggle">🌓 Dark / Light Mode</div>
-      <div
-        style="margin-top: 1rem; font-size: 0.6rem; background: #0b0f1a; border-radius: 16px; padding: 0.6rem; text-align: center; border: 1px solid #1f253f;">
+      <div style="margin-top: 1rem; font-size: 0.6rem; background: #0b0f1a; border-radius: 16px; padding: 0.6rem; text-align: center; border: 1px solid #1f253f;">
         HH | Head Hunters<br>Hunt or be hunted
       </div>
     </aside>
@@ -702,9 +709,12 @@
           <h1>HH | HEAD HUNTERS</h1>
           <p>Hunt or be hunted · Rivals Division</p>
         </div>
+        <!-- OWNER PROFILE (UPDATED with picture and correct name) -->
         <div class="owner-profile">
           <a href="https://www.roblox.com/users/4221202613/profile" target="_blank">
-            <div class="owner-avatar">F</div>
+            <div class="owner-avatar">
+              <img src="https://files.catbox.moe/nadul8.png" alt="fistygamerz">
+            </div>
             <div class="owner-info">
               <div class="name">fistygamerz</div>
               <div class="tag">Founder</div>
@@ -751,8 +761,7 @@
         </div>
         <div class="social-links">
           <a href="https://discord.gg/dKPff6gdsK" target="_blank" class="social-link">💬 Join our Discord</a>
-          <a href="https://www.roblox.com/communities/32380100/Legion-Community-Server#!/about" target="_blank"
-            class="social-link">🎮 Roblox Group</a>
+          <a href="https://www.roblox.com/communities/32380100/Legion-Community-Server#!/about" target="_blank" class="social-link">🎮 Roblox Group</a>
         </div>
       </div>
 
@@ -768,8 +777,7 @@
           <li><strong>5. Represent HH Well</strong> – No trolling other clans.</li>
           <li><strong>6. No Account Sharing</strong> – Alt accounts used to bypass bans are forbidden.</li>
         </ul>
-        <div style="background:#0b0f1a; border-radius:14px; padding:0.8rem; border:1px solid #1f253f;"><strong>Punishment System:</strong>
-          Warning → Suspension → Demotion → Ban</div>
+        <div style="background:#0b0f1a; border-radius:14px; padding:0.8rem; border:1px solid #1f253f;"><strong>Punishment System:</strong> Warning → Suspension → Demotion → Ban</div>
       </div>
 
       <!-- FAQ -->
@@ -816,8 +824,7 @@
       <div id="panel-apply" class="content-panel">
         <div class="panel-title">APPLY TO JOIN HH</div>
         <div style="background:#0b0f1a; border-radius:20px; padding:1rem; border:1px solid #1f253f;">
-          <a href="https://discord.com/channels/1478711010092388392/1491058033520804025" target="_blank"
-            class="apply-button">APPLY NOW →</a>
+          <a href="https://discord.com/channels/1478711010092388392/1491058033520804025" target="_blank" class="apply-button">APPLY NOW →</a>
         </div>
       </div>
 
@@ -827,46 +834,40 @@
         <div class="clan-badge">
           <p>Click the button below to create a support ticket. A staff member will respond as soon as possible.</p>
           <p>Describe your issue clearly when the ticket opens.</p>
-          <a href="https://discord.com/channels/1478711010092388392/1494962347410849873" target="_blank"
-            class="support-button">SUPPORT CHANNEL →</a>
+          <a href="https://discord.com/channels/1478711010092388392/1494962347410849873" target="_blank" class="support-button">SUPPORT CHANNEL →</a>
         </div>
       </div>
 
-      <!-- OWNERS PANEL -->
+      <!-- OWNERS PANEL (Founders) -->
       <div id="panel-owner" class="content-panel">
         <div class="panel-title">CLAN FOUNDERS</div>
-        <div style="display:flex; flex-direction:column; gap:1rem;">
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <!-- fistygamerz -->
           <div class="member-card">
-            <div class="member-avatar">F</div>
+            <div class="member-avatar">
+              <img src="https://files.catbox.moe/nadul8.png" alt="fistygamerz">
+            </div>
             <div class="member-info">
               <div class="member-name">fistygamerz</div>
-              <div class="member-username"><a href="https://www.roblox.com/users/4221202613/profile"
-                  target="_blank">@fistygamerz</a></div>
+              <div class="member-username"><a href="https://www.roblox.com/users/4221202613/profile" target="_blank">@fistygamerz</a></div>
               <div class="member-rank">Founder</div>
             </div>
           </div>
+          <!-- BeastBoys918 -->
           <div class="member-card">
-            <div class="member-avatar">B</div>
+            <div class="member-avatar">
+              <img src="https://files.catbox.moe/ihd16j.png" alt="BeastBoys918">
+            </div>
             <div class="member-info">
               <div class="member-name">BeastBoys918</div>
-              <div class="member-username"><a href="https://www.roblox.com/users/5088373156/profile"
-                  target="_blank">@BeastBoys918</a></div>
-              <div class="member-rank">Founder</div>
-            </div>
-          </div>
-          <div class="member-card">
-            <div class="member-avatar">A</div>
-            <div class="member-info">
-              <div class="member-name">Aaz_Hazar</div>
-              <div class="member-username"><a href="https://www.roblox.com/users/7124274022/profile"
-                  target="_blank">@Aaz_Hazar</a></div>
+              <div class="member-username"><a href="https://www.roblox.com/users/5088373156/profile" target="_blank">@BeastBoys918</a></div>
               <div class="member-rank">Founder</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STRIKE SYSTEM PANEL (UPDATED LOG) -->
+      <!-- STRIKE SYSTEM PANEL -->
       <div id="panel-strike" class="content-panel">
         <div class="panel-title">STRIKE SYSTEM</div>
         <div class="clan-badge">
@@ -925,8 +926,7 @@
           </div>
           <div class="appeal-form-group">
             <label for="appealReason">Reason for Appeal</label>
-            <textarea id="appealReason" name="appealReason" rows="5" required
-              placeholder="Explain why the strike should be reviewed..."></textarea>
+            <textarea id="appealReason" name="appealReason" rows="5" required placeholder="Explain why the strike should be reviewed..."></textarea>
           </div>
           <button type="submit" class="appeal-submit-btn">SUBMIT APPEAL</button>
         </form>
@@ -937,9 +937,7 @@
       <div id="panel-tryout" class="content-panel">
         <div class="panel-title">TRYOUT INFORMATION</div>
         <div class="clan-badge">
-          <div
-            style="display:inline-block; padding:0.2rem 1rem; border-radius:40px; background:#9e2d2d; color:white; margin-bottom:0.5rem;">
-            🔴 TRYOUTS: CLOSED</div>
+          <div style="display:inline-block; padding:0.2rem 1rem; border-radius:40px; background:#9e2d2d; color:white; margin-bottom:0.5rem;">🔴 TRYOUTS: CLOSED</div>
           <p><strong>Current Status:</strong> No tryouts are scheduled at this time.</p>
           <p>When tryouts are open, join the "Tryout Voice" channel and wait for a staff member.</p>
           <p>Requirements: 50+ Rivals wins, working microphone, respect.</p>
@@ -949,8 +947,7 @@
       <!-- ENTRY TEST & FINAL TEST -->
       <div id="panel-entrytest" class="content-panel">
         <div class="panel-title">ENTRY TEST</div>
-        <div class="clan-badge">Complete aim trainer + movement course on "Crossroads". Required: 40 kills. Tests can be done whenever staff are
-          available.</div>
+        <div class="clan-badge">Complete aim trainer + movement course on "Crossroads". Required: 40 kills. Tests can be done whenever staff are available.</div>
       </div>
       <div id="panel-finaltest" class="content-panel">
         <div class="panel-title">FINAL TEST</div>
@@ -991,10 +988,7 @@
       if (window.scrollY > 300) backBtn.classList.add('show');
       else backBtn.classList.remove('show');
     });
-    backBtn.addEventListener('click', () => window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    }));
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
     // Dark/Light Mode
     const toggleBtn = document.getElementById('themeToggle');
